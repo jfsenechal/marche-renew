@@ -38,10 +38,10 @@ function updateSearch() {
 
       <!-- Right-side Icons & Mobile Menu Button -->
       <div class="flex space-x-6">
-        <button class="text-gray-600 hover:text-blue-600">
+        <button class="hidden md:inline text-gray-600 hover:text-blue-600">
           <i class="fas fa-search"></i>
         </button>
-        <button class="md:hidden text-gray-600 hover:text-blue-600">
+        <button class="hidden text-gray-600 hover:text-blue-600">
           <i class="fas fa-bars text-xl"></i>
         </button>
         <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>

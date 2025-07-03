@@ -19,8 +19,8 @@ const {
                :src="item.post_thumbnail_url"
                alt="Article thumbnail">
           <div class="p-6">
-            <p class="text-sm text-gray-500 mb-1">{{ item.blog }}</p>
-            <h4 class="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+            <p :class="`text-sm mb-1 ${item.colorTailwind}`">{{ item.blog }}</p>
+            <h4 class="font-bold text-lg text-gray-900 group-hover:text-cta-dark transition-colors">
               {{ item.post_title }}
             </h4>
           </div>

@@ -9,7 +9,7 @@ definePageMeta({
     <main>
       <HomepageHero/>
       <HomepageQuickAccess/>
-      <section class="py-16 px-6 container mx-auto">
+      <section class="py-6 md:py-16 px-6 container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <HomepageNews/>
           <HomepageAgenda/>

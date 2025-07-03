@@ -12,11 +12,11 @@
         <a v-for="item in widgetsHomeGet"
            :key="item.id"
            :href="item.url"
-           class="group block bg-white p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+           class="group block bg-white p-4 md:p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
           <div class="text-center">
             <i :class="`${item.icon} text-cta-dark mb-4 transition-all duration-300 group-hover:text-citoyen group-hover:scale-110`"></i>
             <h4 class="font-bold text-xl mb-2 text-gray-900">{{ item.title }}</h4>
-            <p class="text-gray-600">
+            <p class="hidden md:text-gray-600">
               {{ item.intro }}
             </p>
             <span
