@@ -5,8 +5,9 @@
   <section class="bg-blue-50 py-20">
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold mb-4">Découvrez Marche</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Explorez les services, les atouts touristiques et les
-        opportunités qu'offre notre belle commune.</p>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+        Explorez les services, les atouts touristiques et les opportunités qu'offre notre belle commune.
+      </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <a v-for="item in widgetsHomeGet"
            :key="item.id"
