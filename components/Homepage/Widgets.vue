@@ -8,15 +8,22 @@
       <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Explorez les services, les atouts touristiques et les
         opportunités qu'offre notre belle commune.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service Card -->
-        <div class="bg-white p-8 rounded-lg shadow-md"
-             v-for="item in widgetsHomeGet"
-             :id="item.id"
-             :key="item.id">
-          <i :class="`${item.icon}  text-blue-500 mb-4`"></i>
-          <h4 class="font-bold text-xl mb-2">{{ item.title }}</h4>
-          <p class="text-gray-600" v-html="item.intro"></p>
-        </div>
+        <a v-for="item in widgetsHomeGet"
+           :key="item.id"
+           :href="item.url"
+           class="group block bg-white p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+          <div class="text-center">
+            <i :class="`${item.icon} text-cta-dark mb-4 transition-all duration-300 group-hover:text-citoyen group-hover:scale-110`"></i>
+            <h4 class="font-bold text-xl mb-2 text-gray-900">{{ item.title }}</h4>
+            <p class="text-gray-600">
+              {{ item.intro }}
+            </p>
+            <span
+                class="mt-4 inline-block font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        En savoir plus →
+                    </span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
