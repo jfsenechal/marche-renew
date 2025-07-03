@@ -12,7 +12,7 @@ const images = [
 const imageSrc = ref(null)
 onMounted(() => {
   const randomImage = images[Math.floor(Math.random() * images.length)];
-  imageSrc.value = `/images/visit/${randomImage}`;
+  imageSrc.value = `https://visitmarche.be/wp-content/themes/visittail/assets/images/bg/${randomImage}`;
 });
 </script>
 <template>
