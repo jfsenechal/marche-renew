@@ -1,0 +1,288 @@
+
+html {
+    @apply scroll-pt-3 scroll-smooth font-montserrat-regular text-base;
+    /* see https://www.getrevue.co/profile/shrutibalasa/issues/did-you-know-about-scroll-padding-easy-solution-to-fixed-header-problem-1325973 */
+}
+
+body {
+    @apply antialiased text-cta-dark;
+}
+
+* {
+    /*  outline: 1px red solid;*/
+}
+
+/* You can mix @apply with standard CSS properties freely */
+img, video, iframe {
+    /*@apply object-cover max-w-full object-top-center;*/ /* todo object-top-center */
+    @apply object-cover max-w-full ;
+    block-size: auto;
+    /* see https://web.dev/learn/design/responsive-"/images/ */
+}
+
+/* --- Component Styles --- */
+/* These are the styles you previously had in `@layer components` */
+
+#app {
+    @apply grid min-h-screen;
+    grid-template-rows: auto 1fr auto;
+}
+
+/*
+  You can continue adding all your other custom component
+  classes or complex selectors here.
+*/
+
+.btn-vivre:hover > nav {
+    @apply xl:block
+}
+
+.icon-menu-mobile {
+    @apply my-4 flex flex-col flex-wrap items-center justify-center font-montserrat-semi-bold xl:hidden;
+}
+
+.text-menu-mobile {
+    @apply text-xs font-montserrat-light;
+}
+
+.musshadow {
+    box-shadow: 0 -0.125rem 0.45rem rgba(0, 0, 0, 0.75);
+    @apply lg:shadow-none
+}
+
+li.initial {
+    position: initial;
+}
+
+/*
+https://codepen.io/thirus/pen/jOvxyLd?editors=1100&utm_source=substack&utm_medium=email
+ */
+#sousmenu a:not([href^='https://www.marche.be'])::after {
+    background-image: url("/images/external.svg");
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-size: 100%;
+    margin-inline-start: 0.8rem;
+    opacity: 0.8;
+}
+
+li[data-top-id='1']:hover div,
+li[data-top-id='2']:hover div,
+li[data-top-id='3']:hover div,
+li[data-top-id='4']:hover div,
+li[data-top-id='5']:hover div,
+li[data-top-id='6']:hover div,
+li[data-top-id='7']:hover div,
+li[data-top-id='8']:hover div,
+li[data-top-id='11']:hover div,
+li[data-top-id='12']:hover div,
+li[data-top-id='13']:hover div,
+li[data-top-id='14']:hover div {
+    @apply xl:opacity-100 xl:bg-white xl:block;
+}
+
+.bg-widget-color {
+    background-image: linear-gradient(
+            90deg,
+            rgba(74, 224, 199, 0.55),
+            rgba(74, 224, 199, 0.55)
+    );
+}
+
+.bg-widget-color-hover {
+    background-color: rgba(72, 127, 137, 0.75);
+}
+
+.bg-img-widgets-1 {
+    background-image: url("/images/img/img_widget01.jpg");
+}
+
+.bg-img-widgets-2 {
+    background-image: url("/images/img/img_widget02.jpg");
+}
+
+.bg-img-widgets-3 {
+    background-image: url("/images/img/img_widget03.jpg");
+}
+
+.bg-img-widgets-4 {
+    background-image: url("/images/img/img_widget04.jpg");
+}
+
+.bg-img-widgets-5 {
+    background-image: url("/images/img/img_widget05.jpg");
+}
+
+.i-swimmer {
+    background-image: url("/images/svg/icon_swimmer_primary.svg");
+}
+
+.i-swimmer-white {
+    background-image: url("/images/svg/icon_swimmer_white.svg");
+}
+
+.i-map {
+    background-image: url("/images/svg/icon_map_primary.svg");
+}
+
+.i-map-white {
+    background-image: url("/images/svg/icon_map_white.svg");
+}
+
+.i-envelope {
+    background-image: url("/images/svg/icon_envelope_primary.svg");
+}
+
+.i-envelope-white {
+    background-image: url("/images/svg/icon_envelope_white.svg");
+}
+
+.i-leaf {
+    background-image: url("/images/svg/icon_leaf_primary.svg");
+}
+
+.i-leaf-white {
+    background-image: url("/images/svg/icon_leaf_white.svg");
+}
+
+.i-traffic-cone {
+    background-image: url("/images/svg/icon_trafficcone_primary.svg");
+}
+
+.i-traffic-cone-white {
+    background-image: url("/images/svg/icon_trafficcone_white.svg");
+}
+
+.i-handshake {
+    background-image: url("/images/svg/icon_handshake_primary.svg");
+}
+
+.i-handshake-white {
+    background-image: url("/images/svg/icon_handshake_white.svg");
+}
+
+.i-beach-ball {
+    background-image: url("/images/svg/icon_beachball_primary.svg");
+}
+
+.i-beach-ball-white {
+    background-image: url("/images/svg/icon_beachball_white.svg");
+}
+
+.i-search {
+    background-image: url("/images/svg/icon_search_darkprimary.svg");
+}
+
+.i-search-white {
+    background-image: url("/images/svg/icon_search_white.svg");
+}
+
+.i-angle-left {
+    background-image: url("/images/svg/icon_angleleft_primary.svg");
+}
+
+.i-times {
+    background-image: url("/images/svg/icon_times_primary.svg");
+}
+
+.i-shirt {
+    background-image: url("/images/svg/icon_shirt_primary.svg");
+}
+
+.i-medical {
+    background-image: url("/images/svg/icon_medical_primary.svg");
+}
+
+.i-trash {
+    background-image: url("/images/svg/icon_trash_primary.svg");
+}
+
+.i-martini-glass {
+    background-image: url("/images/svg/icon_martiniglass_primary.svg");
+}
+
+.i-cart {
+    background-image: url("/images/svg/icon_cart_primary.svg");
+}
+
+.i-flatware {
+    background-image: url("/images/svg/icon_flatware_primary.svg");
+}
+
+.i-water-drop {
+    background-image: url("/images/svg/icon_waterdrop_primary.svg");
+}
+
+.i-umbrella {
+    background-image: url("/images/svg/icon_umbrella_primary.svg");
+}
+
+.i-disk {
+    background-image: url("/images/svg/icon_disk_primary.svg");
+}
+
+.i-book {
+    background-image: url("/images/svg/icon_book_primary.svg");
+}
+
+.i-boat {
+    background-image: url("/images/svg/icon_boat_primary.svg");
+}
+
+.i-school {
+    background-image: url("/images/svg/icon_school_primary.svg");
+}
+
+.i-sun {
+    background-image: url("/images/svg/icon_sun_primary.svg");
+}
+
+.i-board {
+    background-image: url("/images/svg/icon_board_primary.svg");
+}
+
+.i-healthcase {
+    background-image: url("/images/svg/icon_healthcase_primary.svg");
+}
+
+.i-chrono {
+    background-image: url("/images/svg/icon_chrono_primary.svg");
+}
+
+.i-search-plus {
+    background-image: url("/images/svg/icon_searchplus_primary.svg");
+}
+
+.i-search-less {
+    background-image: url("/images/svg/icon_searchless_primary.svg");
+}
+
+.i-list {
+    background-image: url("/images/svg/icon_list_primary.svg");
+}
+
+.i-sound-on {
+    background-image: url("/images/svg/icon_soundon_primary.svg");
+}
+
+.i-sound-off {
+    background-image: url("/images/svg/icon_soundoff_primary.svg");
+}
+
+.i-bus {
+    background-image: url("/images/svg/icon_bus_primary.svg");
+}
+
+.i-wifi {
+    background-image: url("/images/svg/icon_wifi_primary.svg");
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+}

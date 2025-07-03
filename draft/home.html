@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marche-en-Famenne</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Ville de Marche-en-Famenne</h1>
+      <nav class="space-x-4 hidden md:block">
+        <a href="#" class="hover:underline">Accueil</a>
+        <a href="#" class="hover:underline">Actualités</a>
+        <a href="#" class="hover:underline">Agenda</a>
+        <a href="#" class="hover:underline">Services</a>
+        <a href="#" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center h-[400px] flex items-center justify-center text-white" style="background-image: url('https://www.marche.be/images/banners/banner1.jpg');">
+    <div class="bg-black bg-opacity-50 p-6 rounded-md text-center">
+      <h2 class="text-4xl font-bold mb-2">Bienvenue à Marche-en-Famenne</h2>
+      <p class="text-lg">Une ville dynamique, connectée et proche de ses citoyens</p>
+    </div>
+  </section>
+
+  <!-- Actualités -->
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h3 class="text-2xl font-semibold mb-6">Actualités</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Example news card -->
+      <div class="bg-white shadow rounded-lg overflow-hidden">
+        <img src="https://picsum.photos/2070" alt="" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h4 class="font-bold text-lg mb-2">Nouvelle publication</h4>
+          <p class="text-sm text-gray-600">Découvrez les dernières informations municipales...</p>
+        </div>
+      </div>
+      <!-- Repeat cards -->
+      <div class="bg-white shadow rounded-lg overflow-hidden">
+        <img src="https://picsum.photos/2070" alt="" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h4 class="font-bold text-lg mb-2">Travaux en cours</h4>
+          <p class="text-sm text-gray-600">Des travaux sont prévus dans le centre-ville dès juillet...</p>
+        </div>
+      </div>
+      <div class="bg-white shadow rounded-lg overflow-hidden">
+        <img src="https://picsum.photos/2070" alt="" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h4 class="font-bold text-lg mb-2">Marché local</h4>
+          <p class="text-sm text-gray-600">Venez découvrir les producteurs de notre région chaque samedi...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda / Events -->
+  <section class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <h3 class="text-2xl font-semibold mb-6">Agenda</h3>
+      <ul class="space-y-4">
+        <li class="bg-white p-4 shadow rounded-md flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-lg">Fête de la Musique</h4>
+            <p class="text-sm text-gray-600">20 juillet 2025 à 18h - Centre culturel</p>
+          </div>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Détails</button>
+        </li>
+        <li class="bg-white p-4 shadow rounded-md flex justify-between items-center">
+          <div>
+            <h4 class="font-bold text-lg">Atelier zéro déchet</h4>
+            <p class="text-sm text-gray-600">25 juillet 2025 à 14h - Bibliothèque</p>
+          </div>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">S'inscrire</button>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <div>
+        <h5 class="font-bold mb-2">Adresse</h5>
+        <p>Administration communale<br />Rue Bastin 21, 6900 Marche-en-Famenne</p>
+      </div>
+      <div>
+        <h5 class="font-bold mb-2">Contact</h5>
+        <p>Tél: 084/32.10.00<br />Email: info@marche.be</p>
+      </div>
+      <div>
+        <h5 class="font-bold mb-2">Suivez-nous</h5>
+        <p>Facebook · Instagram · YouTube</p>
+      </div>
+    </div>
+    <div class="text-center text-sm mt-6">© 2025 Ville de Marche-en-Famenne. Tous droits réservés.</div>
+  </footer>
+
+</body>
+</html>
+

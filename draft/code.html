@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marche-en-Famenne - Redesign Concept</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Optional: Add a custom font or small tweaks */
+        body {
+            font-family: 'Inter', sans-serif; /* A nice, clean sans-serif font */
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-gray-900">
+                Marche<span class="text-blue-600">.be</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Ma Commune</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Tourisme</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Loisirs</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Vivre à Marche</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Entreprendre</a>
+            </div>
+
+            <!-- Right-side Icons & Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-600 hover:text-blue-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="text-gray-600 hover:text-blue-600">
+                     <i class="fas fa-user"></i>
+                </button>
+                 <button class="md:hidden text-gray-600 hover:text-blue-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="https://picsum.photos/2070" alt="Vue de Marche-en-Famenne" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50"></div> <!-- Dark Overlay -->
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Vivre et découvrir</h1>
+                <p class="mt-4 text-xl md:text-2xl font-light">Marche-en-Famenne, une ville de cultures et d'opportunités.</p>
+            </div>
+        </section>
+
+        <!-- Quick Access / Key Actions Section -->
+        <section class="bg-gray-50 py-12">
+            <div class="container mx-auto px-6 -mt-32 relative z-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1: Actualités -->
+                    <a href="#" class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                        <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-newspaper fa-2x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">Actualités</h3>
+                        <p class="text-gray-500 text-sm">Restez informé des dernières nouvelles de la commune.</p>
+                    </a>
+                    <!-- Card 2: Agenda -->
+                    <a href="#" class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                        <div class="bg-green-100 text-green-600 rounded-full p-4 mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-calendar-alt fa-2x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">Agenda</h3>
+                        <p class="text-gray-500 text-sm">Découvrez les événements à venir à Marche et ses environs.</p>
+                    </a>
+                    <!-- Card 3: Démarches en Ligne -->
+                    <a href="#" class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                         <div class="bg-yellow-100 text-yellow-600 rounded-full p-4 mb-4 group-hover:bg-yellow-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-mouse-pointer fa-2x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">Démarches en ligne</h3>
+                        <p class="text-gray-500 text-sm">Accédez à nos services et e-guichet 24h/24.</p>
+                    </a>
+                    <!-- Card 4: Contact -->
+                    <a href="#" class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+                         <div class="bg-red-100 text-red-600 rounded-full p-4 mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-phone-alt fa-2x"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">Contact & Horaires</h3>
+                        <p class="text-gray-500 text-sm">Trouvez les informations pour nous joindre facilement.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Events Section -->
+        <section class="py-16 px-6 container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Latest News Column -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Dernières Actualités</h2>
+                    <div class="space-y-6">
+                        <!-- News Item 1 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden flex items-center p-4 hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1517436026-17559101ey?q=80&w=400&auto=format&fit=crop" alt="News Image" class="w-24 h-24 object-cover rounded-md mr-4">
+                            <div>
+                                <span class="text-sm text-gray-500">15 Octobre 2023</span>
+                                <h4 class="font-semibold text-lg hover:text-blue-600"><a href="#">Nouveau plan de mobilité pour le centre-ville</a></h4>
+                            </div>
+                        </div>
+                        <!-- News Item 2 -->
+                         <div class="bg-white rounded-lg shadow-md overflow-hidden flex items-center p-4 hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400&auto=format&fit=crop" alt="News Image" class="w-24 h-24 object-cover rounded-md mr-4">
+                            <div>
+                                <span class="text-sm text-gray-500">12 Octobre 2023</span>
+                                <h4 class="font-semibold text-lg hover:text-blue-600"><a href="#">Inscriptions ouvertes pour les stages de Toussaint</a></h4>
+                            </div>
+                        </div>
+                        <!-- News Item 3 -->
+                         <div class="bg-white rounded-lg shadow-md overflow-hidden flex items-center p-4 hover:shadow-lg transition-shadow">
+                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="News Image" class="w-24 h-24 object-cover rounded-md mr-4">
+                            <div>
+                                <span class="text-sm text-gray-500">10 Octobre 2023</span>
+                                <h4 class="font-semibold text-lg hover:text-blue-600"><a href="#">Le marché de Noël prépare sa nouvelle édition</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-block mt-8 bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors">Toutes les actualités</a>
+                </div>
+
+                <!-- Upcoming Events Column -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Prochains Événements</h2>
+                    <div class="space-y-6">
+                        <!-- Event Item 1 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
+                            <div class="bg-green-600 text-white p-4 flex flex-col items-center justify-center w-24 text-center">
+                                <span class="text-3xl font-bold">28</span>
+                                <span class="text-sm">OCT</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-lg">Concert de la Sainte-Cécile</h4>
+                                <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-1"></i> Palais des Congrès</p>
+                            </div>
+                        </div>
+                        <!-- Event Item 2 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
+                            <div class="bg-green-600 text-white p-4 flex flex-col items-center justify-center w-24 text-center">
+                                <span class="text-3xl font-bold">05</span>
+                                <span class="text-sm">NOV</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-semibold text-lg">Brocante d'Automne</h4>
+                                <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-1"></i> Centre-ville</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-block mt-8 bg-green-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-green-700 transition-colors">Tout l'agenda</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Services Section -->
+        <section class="bg-blue-50 py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Découvrez Marche</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-12">Explorez les services, les atouts touristiques et les opportunités qu'offre notre belle commune.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i class="fas fa-hiking fa-3x text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-xl mb-2">Tourisme & Nature</h4>
+                        <p class="text-gray-600">Forêts, sentiers balisés, patrimoine... Un paradis pour les amoureux de la nature.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i class="fas fa-home fa-3x text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-xl mb-2">S'installer à Marche</h4>
+                        <p class="text-gray-600">Services, écoles, logement... Tout pour faciliter votre vie au quotidien.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i class="fas fa-briefcase fa-3x text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-xl mb-2">Économie & Emploi</h4>
+                        <p class="text-gray-600">Un pôle économique dynamique avec de nombreuses opportunités.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: About -->
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-4">Marche.be</h3>
+                    <p class="text-sm">Le site officiel de la Ville de Marche-en-Famenne. L'administration à votre service.</p>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Services Communaux</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Tourisme</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Agenda</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Démarches en ligne</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Contact Info -->
+                 <div>
+                    <h3 class="font-bold text-white text-lg mb-4">Contactez-nous</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-map-marker-alt w-5"></i> Place du Roi Albert 1, Marche</li>
+                        <li><i class="fas fa-phone w-5"></i> +32 (0) 84 32 70 00</li>
+                        <li><i class="fas fa-envelope w-5"></i> info@marche.be</li>
+                    </ul>
+                </div>
+                <!-- Column 4: Social Media -->
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-4">Suivez-nous</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-sm">
+                <p>&copy; 2023 Ville de Marche-en-Famenne. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
