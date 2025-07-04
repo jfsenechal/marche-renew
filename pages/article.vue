@@ -20,24 +20,8 @@ useServerSeoMeta({
 })
 </script>
 <template>
-  <article
-      class="container grid grid-cols-1 xl:grid-cols-3 items-start mt-24 xl:mt-28 mx-auto px-4">
-    <template v-if="pendingArticle">
-      Loading Article...
-    </template>
-    <template v-if="errorArticle" class="text-red-600">
-      Error {{ errorArticle }}
-    </template>
-    <template v-if="article">
-      <ArticleTitre :name="article.post_title"/>
-      <ArticleImage/>
-      <ArticleTags/>
-      <ArticleBody/>
-      <ArticleShare/>
-      <ArticleSeeAlso/>
-    </template>
-    <template v-else>
-      <h3 class="text-2xl font-bold">Article not found</h3>
-    </template>
-  </article>
+  <div class="bg-slate-50 text-slate-700">
+    <ArticleHeader/>
+    <ArticleContent/>
+  </div>
 </template>
