@@ -24,7 +24,7 @@
         <!-- Card 1: Avis de publication -->
         <a href="/administration/publications-communales"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
-           style="background-image: url('https://images.unsplash.com/photo-1596495577886-d9256242485b?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;">
+           style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 
           <!-- Dark Overlay -->
           <div
@@ -98,7 +98,7 @@
         <!-- Card 5: Avis de décès -->
         <a href="/accueil-citoyen/avis-de-deces-9635"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
-           style="background-image: url('https://images.unsplash.com/photo-1555418283-057b322a455a?q=80&w=1000&auto=format=fit&crop'); background-size: cover; background-position: center;">
+           style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 
           <div
               class="absolute inset-0 bg-black/60 group-hover:bg-black/40 group-focus-within:bg-black/40 transition-colors duration-300"></div>

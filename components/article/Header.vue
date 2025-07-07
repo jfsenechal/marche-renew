@@ -1,4 +1,5 @@
 <script setup>
+const {data} = defineProps({data: Object})
 </script>
 <template>
   <!-- HERO HEADER SECTION -->
@@ -11,9 +12,9 @@
     </div>
 
     <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-cta-dark/50"></div>
 
-    <!-- Header Content -->
+    <!-- Header Content
     <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-4">
       <p class="text-sm font-semibold uppercase tracking-widest text-blue-300 animate-fade-in-down">Information
         Circulation</p>
@@ -21,6 +22,6 @@
         Funérailles de M. Guillaume Kip : mesures de stationnement et de circulation
       </h1>
       <p class="mt-4 text-lg text-slate-200 animate-fade-in-down-delay">Publié le 4 juillet 2024</p>
-    </div>
+    </div> -->
   </header>
 </template>
