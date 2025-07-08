@@ -1,12 +1,13 @@
-export default (siteSlug: String, categorySlug: String) => {
+export default (siteSlug: String, id: String) => {
+    console.log(`https://www.marche.be/nuxt/category.php?site=${siteSlug}&id=${id}`)
     const {
-        pending: pendingCategory,
-        data: category,
-        error: errorCategory
-    } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug}&slug=${categorySlug}`)
+        status,
+        data,
+        error
+    } = useLazyFetch(`https://www.marche.be/nuxt/category.php?site=${siteSlug}&id=${id}`)
     return {
-        pendingCategory,
-        category,
-        errorCategory
+        status,
+        data,
+        error
     };
 }

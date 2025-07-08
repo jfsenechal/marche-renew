@@ -1,7 +1,7 @@
 export const menuItems = [
     {id: 1, name: 'E-guichet', link: 'https://eguichet.marche.be'},
-    {id: 2, name: 'Actualités', link: 'news'},
-    {id: 3, name: 'Horaires-Contact', link: 'contact'},
+    {id: 2, name: 'Actualités', link: '/news'},
+    {id: 3, name: 'Horaires-Contact', link: '/article/contact'},
     {id: 4, name: 'Agenda', link: 'agenda'},
-    {id: 5, name: 'Prendre Rdv', link: 'rdv'}
+    {id: 5, name: 'Prendre Rdv', link: '/article/rdv'}
 ];
