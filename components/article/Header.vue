@@ -1,12 +1,13 @@
 <script setup>
 const {data} = defineProps({data: Object})
+const imgUrl = computed(() => data.post_thumbnail_url ?? 'https://www.marche.be/wp-content/uploads/2025/07/1.jpg')
 </script>
 <template>
   <!-- HERO HEADER SECTION -->
   <header class="relative h-[50vh] min-h-[350px] max-h-[450px] w-full overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <img src="https://www.marche.be/wp-content/uploads/2025/07/1.jpg"
+      <img :src="imgUrl"
            alt="Rue avec panneau d'interdiction de stationner"
            class="w-full h-full object-cover hero-image-zoom">
     </div>

@@ -25,7 +25,7 @@ const {data} = defineProps({data: Object})
     </div>
 
     <!-- Article Title -->
-    <h1 class="mt-2 text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
+    <h1 class="mt-2 text-3xl md:text-5xl font-bold text-cta-dark leading-tight">
       {{ data.post_title }}
     </h1>
 
