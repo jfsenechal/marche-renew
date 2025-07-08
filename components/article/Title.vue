@@ -2,7 +2,7 @@
 const {data} = defineProps({data: Object})
 </script>
 <template>
-  <div class="max-4w-5xl mx-auto px-0 py-8 md:py-0">
+  <div class="max-4w-5xl mx-auto px-0 py-8 md:py-0 animate-fade-in-down">
     <!-- Breadcrumbs -->
     <nav aria-label="Breadcrumb" class="text-sm">
       <ol class="flex items-center space-x-2 text-slate-500">

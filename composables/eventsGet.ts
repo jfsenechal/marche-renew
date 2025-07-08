@@ -1,10 +1,10 @@
 export default () => {
-    const {pending: pendingEvents, data: events, error: errorEvents} = useLazyFetch(
+    const {status, data, error} = useFetch(
         `https://www.marche.be/nuxt/events.php`
     );
     return {
-        pendingEvents,
-        events,
-        errorEvents
+        status,
+        data,
+        error
     };
 }
