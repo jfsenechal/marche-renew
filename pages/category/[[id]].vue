@@ -18,6 +18,6 @@ const categoryName = ref('')
   <section v-else>
     <CategoryHeader :data/>
     <CategoryMenu :data v-model:category-selected="categorySelected" v-model:category-name="categoryName"/>
-    <CategoryPosts :data :category-selected="categorySelected" :category-name="categoryName" v-show="categorySelected > 0"/>
+    <CategoryPosts :data :category-selected="categorySelected" :category-name="categoryName"/>
   </section>
 </template>
