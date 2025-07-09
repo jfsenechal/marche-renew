@@ -25,7 +25,7 @@ function setCategorySelected(category) {
             v-for="child in data.children"
             :key="child.cat_ID"
             @click.prevent="setCategorySelected(child)"
-            class="cursor-pointer group bg-white p-2 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
+            class="cursor-pointer group bg-white p-2 rounded-xl shadow-sm hover:shadow-xl hover:text-citoyen hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
           <div class="bg-primary/10 text-primary rounded-full flex flex-row items-center justify-left gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="size-6 w-6 h-6 ">
