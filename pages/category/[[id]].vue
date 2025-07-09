@@ -9,12 +9,15 @@ const {
   data,
   error
 } = categoryGet(siteSlug.value, categoryid)
+const categorySelected = ref(0)
+const categoryName = ref('')
 </script>
 <template>
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error"/>
   <section v-else>
     <CategoryHeader :data/>
-    <CategoryMenu :data/>
+    <CategoryMenu :data v-model:category-selected="categorySelected" v-model:category-name="categoryName"/>
+    <CategoryPosts :data :category-selected="categorySelected" :category-name="categoryName" v-show="categorySelected > 0"/>
   </section>
 </template>

@@ -10,7 +10,7 @@
     </div>
     <div class="flex items-center justify-center p-10">
       <div class="text-2xl font-semibold text-gray-500">
-        Loading article...
+        Loading ...
       </div>
     </div>
   </div>
