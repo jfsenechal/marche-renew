@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import {computed} from 'vue'
 
 const shortcuts = [
   {
@@ -45,9 +45,9 @@ const shortcuts = [
   {
     name: 'Mon courriel', description: '@marche.be',
     icon: 'fas fa-at',
-    color: 'text-red-600',
-    bgcolor: 'bg-red-100',
-    bgcolorhover: 'group-hover:bg-red-600',
+    color: 'text-orange-600',
+    bgcolor: 'bg-orange-100',
+    bgcolorhover: 'group-hover:bg-orange-600',
     url: '/',
     id: 5
   },
