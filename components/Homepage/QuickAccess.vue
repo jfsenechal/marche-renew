@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 
 const shortcuts = [
-  // ... (previous shortcut data, but I've removed 'fa-2x' from the icon classes)
   {
     name: 'Carte dynamique',
     description: 'Géolocalisation des parkings, infrastructures, environnement...',
