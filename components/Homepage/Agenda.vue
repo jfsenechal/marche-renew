@@ -6,7 +6,10 @@ const {
 } = eventsGet()
 
 function monthName(monthNumber) {
-  return 'Juillet'
+  // A more complete implementation for example
+  const date = new Date();
+  date.setMonth(monthNumber - 1);
+  return date.toLocaleString('fr-FR', {month: 'long'});
 }
 </script>
 <template>
@@ -19,12 +22,13 @@ function monthName(monthNumber) {
                 :key="item.codeCgt"
                 :to="`agenda/${item.codeCgt}`"
                 class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
-        <div class="bg-green-600 text-white p-4 flex flex-col items-center justify-center w-24 text-center">
+        <div
+            class="bg-green-600 text-white p-4 flex flex-col items-center justify-center w-24 text-center flex-shrink-0">
           <span class="text-3xl font-bold">  {{ item.shortCutDateEvent["day"] }}</span>
           <span class="text-sm">{{ monthName(item.shortCutDateEvent["month"]) }}</span>
         </div>
-        <div class="p-4">
-          <h4 class="font-semibold text-lg">{{ item.nom }}</h4>
+        <div class="p-4 flex-1 overflow-hidden">
+          <h4 class="font-semibold text-lg line-clamp-2 md:line-clamp-none">{{ item.nom }}</h4>
           <p class="text-sm text-gray-600"><i class="fas fa-map-marker-alt mr-1"></i> {{ item.locality }}</p>
         </div>
       </NuxtLink>
