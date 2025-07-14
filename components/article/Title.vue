@@ -20,8 +20,14 @@ const {data} = defineProps({data: Object})
     </h1>
 
     <!-- Publication Date and Share Button -->
-    <div class="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-      <p class="text-slate-500">Publié le 4 juillet 2024</p>
+    <div class="mt-6 flex flex-row justify-between items-start sm:items-center gap-4">
+      <button
+          class="cursor flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-800 font-semibold text-sm rounded-lg hover:bg-slate-200 transition-colors border border-slate-200">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+        </svg>
+        <span>Ecouter l'article</span>
+      </button>
       <button
           class="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-800 font-semibold text-sm rounded-lg hover:bg-slate-200 transition-colors border border-slate-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

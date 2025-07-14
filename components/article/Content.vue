@@ -24,7 +24,6 @@ const {data} = defineProps({
           </p>
         </div>
       </div>
-
     </article>
   </div>
 </template>
