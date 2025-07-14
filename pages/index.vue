@@ -15,7 +15,7 @@ definePageMeta({
           <HomepageAgenda/>
         </div>
       </section>
-      <HomepageAlso/>
+      <HomepageNewsV2/>
       <HomepageWidgets/>
       <HomepageWidgets2/>
       <HomepagePartners/>

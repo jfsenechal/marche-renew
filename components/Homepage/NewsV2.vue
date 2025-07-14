@@ -6,9 +6,9 @@ const {
 } = newsGet()
 </script>
 <template>
-  <section class="bg-gray-50 py-8">
+  <section class="hidden md:block bg-gray-50 py-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-10">L'actu sous une autre forme</h2>
+      <h2 class="text-3xl font-bold text-center mb-10">L'actu sur toute la largeur (test)</h2>
       <WidgetsLoader v-if="status === 'pending'"/>
       <WidgetsError v-else-if="error"/>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" v-else>
