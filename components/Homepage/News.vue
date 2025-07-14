@@ -15,7 +15,7 @@ const {
         <NuxtLink
             v-for="item in data.slice(0, 6)"
             class="bg-white shadow rounded-lg overflow-hidden  hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-            :to="`article/${item.ID}`"
+            :to="`${item.blog}/article/${item.ID}`"
             :key="item.ID">
           <img
               :src="item.post_thumbnail_url" alt="" class="w-full h-48 object-cover"/>

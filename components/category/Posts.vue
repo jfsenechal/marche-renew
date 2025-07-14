@@ -16,6 +16,8 @@ const postsFiltered = computed(() => {
           : data.posts
     }
 )
+const route = useRoute()
+const siteSlug = computed(() => String(route.params.site || 'citoyen'))
 </script>
 <template>
   <section class="py-4 lg:py-4 bg-background mt-3" id="posts">
@@ -29,10 +31,10 @@ const postsFiltered = computed(() => {
             :key="post.ID"
             class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
           <h3 class="text-lg md:text-xl font-bold">
-            <NuxtLink :to="`/article/${post.ID}`">{{ post.post_title }}</NuxtLink>
+            <NuxtLink :to="`/${siteSlug}/article/${post.ID}`">{{ post.post_title }}</NuxtLink>
           </h3>
           <p class="mt-2 text-text/70" v-if="post.post_excerpt" v-text="post.post_excerpt"></p>
-          <NuxtLink :to="`/article/${post.ID}`"
+          <NuxtLink :to="`/${siteSlug}/article/${post.ID}`"
                     class="inline-block font-semibold text-primary mt-6 group-hover:underline group-hover:text-citoyen">
             En savoir plus →
           </NuxtLink>

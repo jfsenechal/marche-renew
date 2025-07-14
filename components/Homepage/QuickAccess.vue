@@ -7,7 +7,7 @@ const shortcuts = [
     description: 'Géolocalisation des parkings, infrastructures, environnement...',
     // NOTE: 'fa-2x' has been removed. We'll control size with Tailwind.
     icon: 'fas fa-map',
-    url: '/',
+    url: '/tourisme/article/20644',
     id: 1,
     color: 'text-blue-600',
     bgcolor: 'bg-blue-100',
@@ -17,7 +17,7 @@ const shortcuts = [
     name: 'Travaux et Arrêtés de Police',
     description: 'Chantiers en cours, les restrictions de circulation et les arrêtés impactant la voirie.',
     icon: 'fas fa-screwdriver-wrench',
-    url: '/',
+    url: '/citoyen/category/119',
     id: 2,
     color: 'text-yellow-600',
     bgcolor: 'bg-yellow-100',
@@ -27,7 +27,7 @@ const shortcuts = [
     name: 'Environnement Déchet',
     description: 'Gestion des déchets, bien être animal, bio diversité, eau et énergie...',
     icon: 'fas fa-recycle',
-    url: '/',
+    url: '/citoyen/category/38',
     id: 3,
     color: 'text-green-600',
     bgcolor: 'bg-green-100',
@@ -36,7 +36,7 @@ const shortcuts = [
   {
     name: 'Piscine', description: 'Horaires et tarifs.',
     icon: 'fas fa-person-swimming',
-    url: '/',
+    url: '/sport/article/5153',
     id: 4,
     color: 'text-red-600',
     bgcolor: 'bg-red-100',
@@ -48,7 +48,7 @@ const shortcuts = [
     color: 'text-orange-600',
     bgcolor: 'bg-orange-100',
     bgcolorhover: 'group-hover:bg-orange-600',
-    url: '/',
+    url: 'https://citoyen.marche.be',
     id: 5
   },
   {
@@ -57,7 +57,7 @@ const shortcuts = [
     color: 'text-indigo-600',
     bgcolor: 'bg-indigo-100',
     bgcolorhover: 'group-hover:bg-indigo-600',
-    url: '/',
+    url: 'https://enfance-jeunesse.marche.be',
     id: 6
   },
   {
@@ -66,7 +66,7 @@ const shortcuts = [
     color: 'text-red-600',
     bgcolor: 'bg-red-100',
     bgcolorhover: 'group-hover:bg-red-600',
-    url: '/',
+    url: '/social/category/23',
     id: 7
   },
 ]
@@ -84,7 +84,7 @@ const secondRowShortcuts = computed(() => shortcuts.slice(4))
         <!-- First Row -->
         <!-- Mobile: 2 columns, compact. Desktop: 4 columns, detailed. -->
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <a
+          <NuxtLink
               v-for="shortcut in firstRowShortcuts"
               :key="shortcut.id"
               :to="shortcut.url"
@@ -98,13 +98,13 @@ const secondRowShortcuts = computed(() => shortcuts.slice(4))
             <h3 class="font-bold text-sm text-gray-800 md:text-xl md:mb-1">{{ shortcut.name }}</h3>
             <!-- Description is hidden on mobile, visible on desktop -->
             <p class="hidden md:block text-gray-500">{{ shortcut.description }}</p>
-          </a>
+          </NuxtLink>
         </div>
 
         <!-- Second Row -->
         <!-- Same responsive logic as the first row -->
         <div class="flex flex-wrap justify-center gap-4 lg:gap-6">
-          <a
+          <NuxtLink
               v-for="shortcut in secondRowShortcuts"
               :key="shortcut.id"
               :to="shortcut.url"
@@ -115,7 +115,7 @@ const secondRowShortcuts = computed(() => shortcuts.slice(4))
             </div>
             <h3 class="font-bold text-sm text-gray-800 md:text-xl md:mb-1">{{ shortcut.name }}</h3>
             <p class="hidden md:block text-gray-500">{{ shortcut.description }}</p>
-          </a>
+          </NuxtLink>
         </div>
 
       </div>

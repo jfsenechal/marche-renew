@@ -9,6 +9,6 @@ const {
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error"/>
   <div class="bg-slate-50 text-slate-700" v-else>
-    Aganeda
+    List events Agenda
   </div>
 </template>

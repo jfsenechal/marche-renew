@@ -1,6 +1,6 @@
 <script setup>
 const route = useRoute()
-const siteSlug = computed(() => String(route.params.siteSlug || 'citoyen'))
+const siteSlug = computed(() => String(route.params.site || 'citoyen'))
 const categories = computed(() => String(route.params.categories || 'Pas de categories parent'))
 const categorySlug = computed(() => String(route.params.categorySlug || '/'))
 const categoryid = useRoute().params.id

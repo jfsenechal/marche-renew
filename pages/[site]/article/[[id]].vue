@@ -1,6 +1,6 @@
 <script setup>
 const {path, params} = useRoute()
-const siteSlug = computed(() => String(params.siteSlug || 'citoyen'))
+const siteSlug = computed(() => String(params.site || 'citoyen'))
 const articleId = useRoute().params.id
 const articleSlug = computed(() => String(params.articleSlug || 'no article slug'))
 const categories = computed(() => String(params.categories || 'no cats'))

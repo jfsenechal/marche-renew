@@ -22,7 +22,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Card 1: Avis de publication -->
-        <a href="/administration/publications-communales"
+        <a href="/administration/category/15"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 
@@ -42,7 +42,7 @@
         </a>
 
         <!-- Card 2: Économie -->
-        <a href="/economie"
+        <a href="https://adl.marche.be"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;">
 
@@ -96,7 +96,7 @@
         </a>
 
         <!-- Card 5: Avis de décès -->
-        <a href="/accueil-citoyen/avis-de-deces-9635"
+        <a href="/citoyen/article/9635"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 

@@ -4,7 +4,7 @@ export const widgetsHomeGet = [
         intro: "Enquêtes publiques, assemblées institutions...",
         class: "bg-img-widgets-1",
         icon: "fas fa-paper-plane fa-3x",
-        url: "/",
+        url: "/administration/category/15",
         id: 1,
     },
     {
@@ -12,7 +12,7 @@ export const widgetsHomeGet = [
         intro: "Infos pratiques, commerces locaux...",
         class: "bg-img-widgets-2",
         icon: "fas fa-shop fa-3x",
-        url: "/",
+        url: "https://adl.marche.be",
         id: 2,
     },
     {
@@ -21,7 +21,7 @@ export const widgetsHomeGet = [
             "Plateforme de lenveloppe participative, consultations publiques...",
         class: "bg-img-widgets-3",
         icon: "fas fa-person fa-3x",
-        url: "/",
+        url: "https://jeparticipe.marche.be/",
         id: 3,
     },
     {
@@ -29,7 +29,7 @@ export const widgetsHomeGet = [
         intro: "Offres et demandes du tissu associatif",
         class: "bg-img-widgets-4",
         icon: "fas fa-hand-holding-heart fa-3x",
-        url: "/",
+        url: "https://volontariat.marche.be",
         id: 4,
     },
     {
@@ -37,7 +37,7 @@ export const widgetsHomeGet = [
         intro: "Annonces nécrologiques  de notre commune",
         class: "bg-img-widgets-5",
         icon: "fas fa-cross fa-3x",
-        url: "/",
+        url: "/citoyen/article/9635",
         id: 5,
     }
 ];

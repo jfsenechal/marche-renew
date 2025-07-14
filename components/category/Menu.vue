@@ -6,11 +6,9 @@ const {data} = defineProps({
 })
 const categorySelected = defineModel('category-selected')
 const categoryName = defineModel('category-name')
+const route = useRoute()
+const siteSlug = computed(() => String(route.params.site || 'citoyen'))
 
-function setCategorySelected22(category) {
-  categorySelected.value = category.cat_ID
-  categoryName.value = category.name
-}
 async function setCategorySelected(category) {
   // Update the state (this will trigger the filter in the parent/sibling component)
   categorySelected.value = category.cat_ID
@@ -22,7 +20,7 @@ async function setCategorySelected(category) {
   // <-- 3. Find the element and scroll to it
   const element = document.getElementById('posts')
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    element.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
 }
 </script>
@@ -31,8 +29,8 @@ async function setCategorySelected(category) {
     <div class="container mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-8 lg:mb-16">
         <h2 class="text-3xl lg:text-4xl font-bold mt-3">{{ data.name }}</h2>
-        <div class="mt-5 text-base md:text-lg text-text/70 underline"
-           v-html="data.description ??  'De la gestion des déchets au bien-être animal, découvrez toutes les démarches et initiatives environnementales de la commune.'">
+        <div class="mt-5 text-base md:text-lg text-text/70 desc-underline"
+             v-html="data.description ??  'De la gestion des déchets au bien-être animal, découvrez toutes les démarches et initiatives environnementales de la commune.'">
         </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -40,7 +38,7 @@ async function setCategorySelected(category) {
             v-for="child in data.children"
             :key="child.cat_ID"
             @click.prevent="setCategorySelected(child)"
-
+            :to="`/${siteSlug}/category/${child.cat_ID}`"
             class="cursor-pointer group bg-white p-2 rounded-xl shadow-sm hover:shadow-xl hover:text-citoyen hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
           <div class="bg-primary/10 text-primary rounded-full flex flex-row items-center justify-left gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -55,3 +53,8 @@ async function setCategorySelected(category) {
     </div>
   </section>
 </template>
+<style>
+.desc-underline a {
+  text-decoration: underline;
+}
+</style>
