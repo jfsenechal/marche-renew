@@ -15,11 +15,11 @@ function setCategorySelected(category) {
 <template>
   <section class="py-2 lg:py-4 bg-background">
     <div class="container mx-auto px-6">
-      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-        <h2 class="text-3xl lg:text-4xl font-bold">{{ data.name }}</h2>
-        <p class="mt-4 text-base md:text-lg text-text/70 text-to-underline"
+      <div class="text-center max-w-3xl mx-auto mb-8 lg:mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mt-3">{{ data.name }}</h2>
+        <div class="mt-5 text-base md:text-lg text-text/70 underline"
            v-html="data.description ??  'De la gestion des déchets au bien-être animal, découvrez toutes les démarches et initiatives environnementales de la commune.'">
-        </p>
+        </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         <NuxtLink
@@ -40,9 +40,3 @@ function setCategorySelected(category) {
     </div>
   </section>
 </template>
-<style>
-.text-to-underline a {
-  text-decoration: underline;
-
-}
-</style>
