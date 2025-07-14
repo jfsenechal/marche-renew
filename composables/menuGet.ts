@@ -1,12 +1,12 @@
 export default () => {
     const {
-        pending: pendingMenu,
-        data: menu,
-        error: errorMenu
+        status,
+        data,
+        error
     } = useLazyFetch(`https://www.marche.be/nuxt/menu.php`)
     return {
-        pendingMenu,
-        menu,
-        errorMenu
+        status,
+        data,
+        error
     };
 }
