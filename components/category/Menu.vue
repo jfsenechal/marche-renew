@@ -7,9 +7,23 @@ const {data} = defineProps({
 const categorySelected = defineModel('category-selected')
 const categoryName = defineModel('category-name')
 
-function setCategorySelected(category) {
+function setCategorySelected22(category) {
   categorySelected.value = category.cat_ID
   categoryName.value = category.name
+}
+async function setCategorySelected(category) {
+  // Update the state (this will trigger the filter in the parent/sibling component)
+  categorySelected.value = category.cat_ID
+  categoryName.value = category.name
+
+  // <-- 2. Wait for the DOM to update
+  await nextTick()
+
+  // <-- 3. Find the element and scroll to it
+  const element = document.getElementById('posts')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 }
 </script>
 <template>
@@ -26,6 +40,7 @@ function setCategorySelected(category) {
             v-for="child in data.children"
             :key="child.cat_ID"
             @click.prevent="setCategorySelected(child)"
+
             class="cursor-pointer group bg-white p-2 rounded-xl shadow-sm hover:shadow-xl hover:text-citoyen hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
           <div class="bg-primary/10 text-primary rounded-full flex flex-row items-center justify-left gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

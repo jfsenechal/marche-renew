@@ -18,7 +18,7 @@ const postsFiltered = computed(() => {
 )
 </script>
 <template>
-  <section class="py-4 lg:py-4 bg-background mt-3">
+  <section class="py-4 lg:py-4 bg-background mt-3" id="posts">
     <div class="container mx-auto px-6">
       <h2 class="text-xl lg:text-4xl font-bold text-citoyen mb-4" v-show="categorySelected > 0">
         {{ postsFiltered.length }} article(s) dans {{ categoryName }}
