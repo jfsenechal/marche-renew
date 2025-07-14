@@ -1,67 +1,68 @@
 <script setup>
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 const {
   status,
   data,
   error
 } = menuGet()
+// --- STATE MANAGEMENT ---
 
 // Mobile State
 const isMobileMenuOpen = ref(false);
-const activeMobileDrawerId = ref(null); // Stores the blogid of the open drawer
+const activeMobileDrawerId = ref(null);
 
 // Desktop State
 const isDesktopMenuOpen = ref(false);
-const activeDesktopCategory = ref(null); // Stores the entire active category object
-const desktopMenuRef = ref(null);
+const activeDesktopCategory = ref(null);
 
-// --- COMPUTED PROPERTIES ---
+// --- REFS FOR DOM ELEMENTS --- // CHANGED: Renamed for clarity and added a new one
+const desktopMenuPanelRef = ref(null);
+const desktopMenuButtonRef = ref(null); // CHANGED: Added ref for the toggle button
 
-// Finds the full category object for the active mobile drawer
+// --- COMPUTED PROPERTIES --- (same as before)
 const activeMobileCategoryData = computed(() => {
   if (!activeMobileDrawerId.value || !data.value) return null;
   return data.value.find(item => item.blogid === activeMobileDrawerId.value);
 });
 
-
 // --- FUNCTIONS ---
 
-// Toggle the main menu panels
+// Toggle functions (same as before)
 const toggleMobileMenu = () => isMobileMenuOpen.value = !isMobileMenuOpen.value;
 const toggleDesktopMenu = () => isDesktopMenuOpen.value = !isDesktopMenuOpen.value;
-
-// Mobile: Open a specific child drawer
 const openMobileDrawer = (id) => activeMobileDrawerId.value = id;
-// Mobile: Go back to the main category list
 const closeMobileDrawer = () => activeMobileDrawerId.value = null;
-
-// Desktop: Set the active category to display its children
 const selectDesktopCategory = (category) => {
   activeDesktopCategory.value = category;
 };
 
-// Closes the desktop menu if a click occurs outside of it
+// --- CLICK OUTSIDE HANDLER --- // CHANGED: Logic is now correct
 const closeDesktopMenuOnClickOutside = (event) => {
-  if (isDesktopMenuOpen.value && desktopMenuRef.value && !desktopMenuRef.value.contains(event.target)) {
+  // Do nothing if the menu is not open
+  if (!isDesktopMenuOpen.value) return;
+
+  // Check if the click was on the button OR inside the panel
+  const isClickOnButton = desktopMenuButtonRef.value?.contains(event.target);
+  const isClickInsidePanel = desktopMenuPanelRef.value?.contains(event.target);
+
+  // If the click is outside both the button and the panel, close the menu
+  if (!isClickOnButton && !isClickInsidePanel) {
     isDesktopMenuOpen.value = false;
   }
 };
 
-// --- LIFECYCLE & WATCHERS ---
 
-// Watch for mobile menu opening/closing to reset the drawer state
+// --- LIFECYCLE & WATCHERS --- (same as before)
 watch(isMobileMenuOpen, (isOpen) => {
   if (!isOpen) {
-    // Use a timeout to allow the closing animation to finish before resetting
     setTimeout(() => {
       activeMobileDrawerId.value = null;
     }, 300);
   }
 });
 
-// Add/remove click outside listener
 onMounted(() => document.addEventListener('click', closeDesktopMenuOnClickOutside));
 onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickOutside));
-
 </script>
 
 <template>
@@ -77,18 +78,20 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
         <!-- Desktop Menu Trigger -->
         <div class="hidden md:block">
           <button
-              @click="toggleDesktopMenu"
-              type="button"
-              class="px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-white"
-              :aria-expanded="isDesktopMenuOpen"
-              aria-controls="desktop-menu"
+              ref="desktopMenuButtonRef"
+          @click="toggleDesktopMenu"
+          type="button"
+          class="px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-white"
+          :aria-expanded="isDesktopMenuOpen"
+          aria-controls="desktop-menu"
           >
-            Menu
+          Menu
           </button>
         </div>
 
         <!-- Mobile Menu Trigger (Hamburger) -->
         <div class="md:hidden">
+          <!-- (Mobile trigger markup is unchanged) -->
           <button
               @click="toggleMobileMenu"
               type="button"
@@ -120,47 +123,49 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
   >
     <div
         v-if="isDesktopMenuOpen"
-        ref="desktopMenuRef"
-        id="desktop-menu"
-        class="hidden md:block absolute top-16 left-0 w-full bg-white text-gray-900 shadow-lg z-30"
+        ref="desktopMenuPanelRef"
+    id="desktop-menu"
+    class="hidden md:block absolute top-16 left-0 w-full bg-white text-gray-900 shadow-lg z-30"
     >
-      <div class="container mx-auto grid grid-cols-3 gap-8 p-8">
-        <!-- Column 1: Parent Categories -->
-        <div class="col-span-1 border-r border-gray-200 pr-8">
-          <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Categories</h3>
-          <ul class="mt-4 space-y-1">
-            <li v-for="item in data" :key="item.blogid">
-              <button
-                  @click="selectDesktopCategory(item)"
-                  type="button"
-                  class="w-full text-left px-4 py-2 text-base rounded-md"
-                  :class="activeDesktopCategory?.blogid === item.blogid ? 'bg-gray-100 font-semibold text-indigo-600' : 'hover:bg-gray-100'"
-              >
-                {{ item.name }}
-              </button>
+    <!-- (Desktop panel markup is unchanged) -->
+    <div class="container mx-auto grid grid-cols-3 gap-8 p-8">
+      <!-- Column 1: Parent Categories -->
+      <div class="col-span-1 border-r border-gray-200 pr-8">
+        <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Categories</h3>
+        <ul class="mt-4 space-y-1">
+          <li v-for="item in data" :key="item.blogid">
+            <button
+                @click="selectDesktopCategory(item)"
+                type="button"
+                class="w-full text-left px-4 py-2 text-base rounded-md"
+                :class="activeDesktopCategory?.blogid === item.blogid ? 'bg-gray-100 font-semibold text-indigo-600' : 'hover:bg-gray-100'"
+            >
+              {{ item.name }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 2 & 3: Child Items (2-column layout) -->
+      <div class="col-span-2">
+        <div v-if="activeDesktopCategory">
+          <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">{{ activeDesktopCategory.name }}</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
+            <li v-for="child in activeDesktopCategory.items" :key="child.ID">
+              <a href="#" class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">{{ child.title }}</a>
             </li>
           </ul>
         </div>
-
-        <!-- Column 2 & 3: Child Items (2-column layout) -->
-        <div class="col-span-2">
-          <div v-if="activeDesktopCategory">
-            <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">{{ activeDesktopCategory.name }}</h3>
-            <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
-              <li v-for="child in activeDesktopCategory.items" :key="child.ID">
-                <a href="#" class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">{{ child.title }}</a>
-              </li>
-            </ul>
-          </div>
-          <div v-else class="flex items-center justify-center h-full">
-            <p class="text-gray-500">Select a category to see more.</p>
-          </div>
+        <div v-else class="flex items-center justify-center h-full">
+          <p class="text-gray-500">Select a category to see more.</p>
         </div>
       </div>
+    </div>
     </div>
   </transition>
 
   <!-- Mobile Menu Panel (with sliding drawers) -->
+  <!-- (Mobile panel markup is unchanged) -->
   <transition
       enter-active-class="transition ease-out duration-300"
       enter-from-class="opacity-0"
@@ -170,12 +175,8 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
       leave-to-class="opacity-0"
   >
     <div v-if="isMobileMenuOpen" class="md:hidden fixed inset-0 z-50">
-      <!-- Backdrop -->
       <div @click="toggleMobileMenu" class="absolute inset-0 bg-black/50"></div>
-
-      <!-- Menu Container -->
       <div class="relative bg-gray-800 text-white w-full max-w-sm h-full shadow-xl flex flex-col overflow-x-hidden">
-        <!-- Main Panel -->
         <div
             class="absolute top-0 left-0 w-full h-full transition-transform duration-300 ease-in-out"
             :class="{' -translate-x-full': activeMobileDrawerId }"
@@ -199,8 +200,6 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
             </li>
           </ul>
         </div>
-
-        <!-- Child Drawer Panel -->
         <div
             class="absolute top-0 left-0 w-full h-full transition-transform duration-300 ease-in-out bg-gray-800"
             :class="{'translate-x-0': activeMobileDrawerId, 'translate-x-full': !activeMobileDrawerId }"
