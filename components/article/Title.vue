@@ -20,7 +20,7 @@ const {data} = defineProps({data: Object})
     </h1>
 
     <!-- Publication Date and Share Button -->
-    <div class="mt-6 flex flex-row justify-between items-start sm:items-center gap-4">
+    <div class="mt-6 mb-4 flex flex-row justify-between items-start sm:items-center gap-4">
       <button
           class="cursor flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-800 font-semibold text-sm rounded-lg hover:bg-slate-200 transition-colors border border-slate-200">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
