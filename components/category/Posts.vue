@@ -28,11 +28,14 @@ const postsFiltered = computed(() => {
             v-for="post in postsFiltered"
             :key="post.ID"
             class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
-          <h3 class="text-lg md:text-xl font-bold">{{ post.post_title }}</h3>
+          <h3 class="text-lg md:text-xl font-bold">
+            <NuxtLink :to="`/article/${post.ID}`">{{ post.post_title }}</NuxtLink>
+          </h3>
           <p class="mt-2 text-text/70" v-if="post.post_excerpt" v-text="post.post_excerpt"></p>
-          <a :href="`/article/${post.ID}`" class="inline-block font-semibold text-primary mt-6 group-hover:underline group-hover:text-citoyen">
+          <NuxtLink :to="`/article/${post.ID}`"
+                    class="inline-block font-semibold text-primary mt-6 group-hover:underline group-hover:text-citoyen">
             En savoir plus →
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>
