@@ -7,7 +7,7 @@ const {data} = defineProps({
 </script>
 <template>
   <div class="relative z-20 -mt-16 md:-mt-24">
-    <article class="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 md:p-12">
+    <article class="w-full md:max-w-6xl mx-auto bg-white rounded-xl shadow-2xl p-2 sm:p-10 md:p-12">
       <ArticleTitle :data/>
       <div class="prose max-w-none prose-lg prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-800">
         <p class="fade-in-up text-xl leading-relaxed text-slate-600">

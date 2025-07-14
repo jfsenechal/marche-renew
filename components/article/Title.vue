@@ -4,17 +4,7 @@ const {data} = defineProps({data: Object})
 <template>
   <div class="max-4w-5xl mx-auto px-0 py-8 md:py-0 animate-fade-in-down">
     <!-- Breadcrumbs -->
-    <nav aria-label="Breadcrumb" class="text-sm">
-      <ol class="flex items-center space-x-2 text-slate-500">
-        <li><a href="#" class="hover:text-blue-600 hover:underline">Accueil</a></li>
-        <li><span class="select-none">/</span></li>
-        <li><a href="#" class="hover:text-blue-600 hover:underline">Actualités</a></li>
-        <li><span class="select-none">/</span></li>
-        <li aria-current="page" class="font-medium text-slate-700 truncate max-w-[200px] sm:max-w-none">
-          {{data.post_title}}
-        </li>
-      </ol>
-    </nav>
+    <ArticleBreadcrumbs :path="[]" :title="data.post_title"/>
 
     <!-- Category Tag -->
     <div class="mt-6">
