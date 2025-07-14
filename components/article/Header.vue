@@ -8,7 +8,7 @@ const imgUrl = computed(() => data.post_thumbnail_url ?? 'https://www.marche.be/
     <!-- Background Image -->
     <div class="absolute inset-0">
       <img :src="imgUrl"
-           alt="Rue avec panneau d'interdiction de stationner"
+           alt=""
            class="w-full h-full object-cover hero-image-zoom">
     </div>
 

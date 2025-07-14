@@ -11,8 +11,7 @@ const {data} = defineProps({
       <ArticleTitle :data/>
       <div class="prose max-w-none prose-lg prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-800">
         <p class="fade-in-up text-xl leading-relaxed text-slate-600">
-          Afin d’assurer le bon déroulement des funérailles de Monsieur Guillaume Kip, des mesures spécifiques de
-          circulation et de stationnement seront mises en place. Nous vous remercions de votre coopération.
+          {{data.post_excerpt ?? 'Pas d\'excerpt'}}
         </p>
 
         <div class="fade-in-up">
