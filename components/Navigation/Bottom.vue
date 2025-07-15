@@ -71,19 +71,21 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
   <header class="bg-gray-800 text-white shadow-md relative z-40" v-else>
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-16">
-        <a href="/" class="text-xl font-bold">MyLogo</a>
+        <a href="/" class="">
+          <img src="/images/img_logo.png" alt="logo" class="h-10 w-16 xl:h-14 xl:w-24"/>
+        </a>
 
         <!-- Desktop Menu Trigger -->
         <div class="hidden md:block">
           <button
               ref="desktopMenuButtonRef"
-          @click="toggleDesktopMenu"
-          type="button"
-          class="px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-white"
-          :aria-expanded="isDesktopMenuOpen"
-          aria-controls="desktop-menu"
+              @click="toggleDesktopMenu"
+              type="button"
+              class="px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-white"
+              :aria-expanded="isDesktopMenuOpen"
+              aria-controls="desktop-menu"
           >
-          Menu
+            Menu
           </button>
         </div>
 
@@ -98,11 +100,13 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
               aria-controls="mobile-menu"
               aria-label="Open main menu"
           >
-            <svg v-if="!isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            <svg v-if="!isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
             </svg>
-            <svg v-else class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <svg v-else class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
         </div>
@@ -122,43 +126,45 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
     <div
         v-if="isDesktopMenuOpen"
         ref="desktopMenuPanelRef"
-    id="desktop-menu"
-    class="hidden md:block absolute top-16 left-0 w-full bg-white text-gray-900 shadow-lg z-30"
+        id="desktop-menu"
+        class="hidden md:block absolute top-16 left-0 w-full bg-white text-gray-900 shadow-lg z-30"
     >
-    <!-- (Desktop panel markup is unchanged) -->
-    <div class="container mx-auto grid grid-cols-3 gap-8 p-8">
-      <!-- Column 1: Parent Categories -->
-      <div class="col-span-1 border-r border-gray-200 pr-8">
-        <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Categories</h3>
-        <ul class="mt-4 space-y-1">
-          <li v-for="item in data" :key="item.blogid">
-            <button
-                @click="selectDesktopCategory(item)"
-                type="button"
-                class="w-full text-left px-4 py-2 text-base rounded-md"
-                :class="activeDesktopCategory?.blogid === item.blogid ? 'bg-gray-100 font-semibold text-indigo-600' : 'hover:bg-gray-100'"
-            >
-              {{ item.name }}
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Column 2 & 3: Child Items (2-column layout) -->
-      <div class="col-span-2">
-        <div v-if="activeDesktopCategory">
-          <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">{{ activeDesktopCategory.name }}</h3>
-          <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
-            <li v-for="child in activeDesktopCategory.items" :key="child.ID">
-              <a href="#" class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">{{ child.title }}</a>
+      <!-- (Desktop panel markup is unchanged) -->
+      <div class="container mx-auto grid grid-cols-3 gap-8 p-8">
+        <!-- Column 1: Parent Categories -->
+        <div class="col-span-1 border-r border-gray-200 pr-8">
+          <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Categories</h3>
+          <ul class="mt-4 space-y-1">
+            <li v-for="item in data" :key="item.blogid">
+              <button
+                  @click="selectDesktopCategory(item)"
+                  type="button"
+                  class="w-full text-left px-4 py-2 text-base rounded-md"
+                  :class="activeDesktopCategory?.blogid === item.blogid ? 'bg-gray-100 font-semibold text-indigo-600' : 'hover:bg-gray-100'"
+              >
+                {{ item.name }}
+              </button>
             </li>
           </ul>
         </div>
-        <div v-else class="flex items-center justify-center h-full">
-          <p class="text-gray-500">Select a category to see more.</p>
+
+        <!-- Column 2 & 3: Child Items (2-column layout) -->
+        <div class="col-span-2">
+          <div v-if="activeDesktopCategory">
+            <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">{{
+                activeDesktopCategory.name
+              }}</h3>
+            <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
+              <li v-for="child in activeDesktopCategory.items" :key="child.ID">
+                <a href="#" class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">{{ child.title }}</a>
+              </li>
+            </ul>
+          </div>
+          <div v-else class="flex items-center justify-center h-full">
+            <p class="text-gray-500">Select a category to see more.</p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </transition>
 
@@ -182,17 +188,22 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
           <div class="p-4 flex items-center justify-between border-b border-gray-700">
             <h2 class="text-lg font-semibold">Menu</h2>
             <button @click="toggleMobileMenu" class="p-2 -mr-2" aria-label="Close menu">
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </button>
           </div>
           <ul class="p-4 space-y-1">
             <li v-for="item in data" :key="item.blogid">
-              <button @click="openMobileDrawer(item.blogid)" class="w-full flex justify-between items-center text-left p-3 rounded-md text-base hover:bg-gray-700">
+              <button @click="openMobileDrawer(item.blogid)"
+                      class="w-full flex justify-between items-center text-left p-3 rounded-md text-base hover:bg-gray-700">
                 <span>{{ item.name }}</span>
-                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                     fill="currentColor">
+                  <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"/>
                 </svg>
               </button>
             </li>
@@ -206,7 +217,9 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
             <div class="p-4 flex items-center border-b border-gray-700">
               <button @click="closeMobileDrawer" class="p-2 -ml-2 mr-2" aria-label="Go back to main menu">
                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  <path fill-rule="evenodd"
+                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                        clip-rule="evenodd"/>
                 </svg>
               </button>
               <h2 class="text-lg font-semibold">{{ activeMobileCategoryData.name }}</h2>
