@@ -1,4 +1,3 @@
 <template>
-
       <NavigationBottom/>
 </template>

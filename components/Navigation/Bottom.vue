@@ -1,5 +1,4 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 const {
   status,
   data,
@@ -50,7 +49,6 @@ const closeDesktopMenuOnClickOutside = (event) => {
     isDesktopMenuOpen.value = false;
   }
 };
-
 
 // --- LIFECYCLE & WATCHERS --- (same as before)
 watch(isMobileMenuOpen, (isOpen) => {

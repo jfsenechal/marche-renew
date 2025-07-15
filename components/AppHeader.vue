@@ -1,19 +1,4 @@
 <script setup>
-const emit = defineEmits(["open-search", "close-search"]);
-
-function updateOpenSearch() {
-  emit("open-search");
-}
-
-function closeSearch() {
-  emit("close-search");
-}
-
-const searchIsOpen = ref(false);
-
-function updateSearch() {
-  searchIsOpen.value = !searchIsOpen.value;
-}
 </script>
 <template>
   <header class="bg-white shadow-md sticky top-0 z-50">
