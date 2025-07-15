@@ -13,10 +13,10 @@
                 <div>
                     <h3 class="font-bold text-white text-lg mb-4">Liens Rapides</h3>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Services Communaux</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Tourisme</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Agenda</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Démarches en ligne</a></li>
+                        <li><a href="/administration/category/12" class="hover:text-blue-400 transition-colors">Services Communaux</a></li>
+                        <li><a href="https://visitmarche.be" class="hover:text-blue-400 transition-colors">Tourisme</a></li>
+                        <li><a href="/agenda" class="hover:text-blue-400 transition-colors">Agenda</a></li>
+                        <li><a href="https://eguichet.marche.be" class="hover:text-blue-400 transition-colors">Démarches en ligne</a></li>
                     </ul>
                 </div>
                 <!-- Column 3: Contact Info -->
@@ -32,9 +32,9 @@
                 <div>
                     <h3 class="font-bold text-white text-lg mb-4">Suivez-nous</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/VilledeMarcheenFamenne" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/villedemarche" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/user/VilledeMarche" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>

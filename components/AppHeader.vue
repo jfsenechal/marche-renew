@@ -120,7 +120,7 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
                   @click="selectDesktopCategory(item)"
                   type="button"
                   class="w-full text-left px-4 py-2 text-base rounded-md"
-                  :class="activeDesktopCategory?.blogid === item.blogid ? 'bg-gray-100 font-semibold text-indigo-600' : 'hover:bg-gray-100'"
+                  :class="activeDesktopCategory?.blogid === item.blogid ? `bg-gray-100 font-semibold ${item.color}` : 'hover:bg-gray-100'"
               >
                 {{ item.name }}
               </button>
@@ -131,7 +131,7 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
         <!-- Column 2 & 3: Child Items (2-column layout) -->
         <div class="col-span-2">
           <div v-if="activeDesktopCategory">
-            <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">{{
+            <h3 :class="`text-sm font-semibold ${activeDesktopCategory.color} tracking-wider uppercase`">{{
                 activeDesktopCategory.name
               }}</h3>
             <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
