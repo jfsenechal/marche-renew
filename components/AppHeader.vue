@@ -136,7 +136,8 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
               }}</h3>
             <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
               <li v-for="child in activeDesktopCategory.items" :key="child.id">
-                <NuxtLink :to="doLink(child.blog,child.object,child.id)"
+                <NuxtLink :to="doLink(child.blog,child.typejfs,child.id,child.url)"
+                          @click.prevent="toggleDesktopMenu()"
                           class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">
                   {{ child.title }}
                 </NuxtLink>
@@ -209,7 +210,8 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
             </div>
             <ul class="p-4 space-y-1">
               <li v-for="child in activeMobileCategoryData.items" :key="child.ID">
-                <NuxtLink :to="doLink(child.blog,child.object,child.id)"
+                <NuxtLink :to="doLink(child.blog,child.typejfs,child.id,child.url)"
+                          @click.prevent="toggleMobileMenu()"
                           class="block p-3 rounded-md hover:bg-gray-700">
                   {{ child.title }}
                 </NuxtLink>
