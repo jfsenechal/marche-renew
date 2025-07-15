@@ -85,14 +85,7 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
           >
             <i class="fas fa-bars"></i> <span>Vivre à Marche</span>
           </button>
-          <nav class="hidden md:flex items-center space-x-6">
-            <NuxtLink v-for="item in menuItems"
-                      :key="item.id"
-                      :to="`${item.link}`"
-                      class="flex items-center h-16 font-semibold text-cta-dark hover:text-cta-light transition-colors border-b-3 border-transparent hover:border-b-3 hover:border-cta-light leading-6">
-              {{ item.name }}
-            </NuxtLink>
-          </nav>
+          <NavigationShortcuts/>
         </div>
         <!-- Mobile Menu Trigger (Hamburger) -->
         <NavigationMobileVivreButton v-model:toggle-mobile-menu="toggleMobileMenu"
@@ -142,8 +135,11 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
                 activeDesktopCategory.name
               }}</h3>
             <ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-4">
-              <li v-for="child in activeDesktopCategory.items" :key="child.ID">
-                <a href="#" class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">{{ child.title }}</a>
+              <li v-for="child in activeDesktopCategory.items" :key="child.id">
+                <NuxtLink :to="doLink(child.blog,child.object,child.id)"
+                          class="block p-2 -mx-2 rounded-md hover:bg-gray-100 text-base">
+                  {{ child.title }}
+                </NuxtLink>
               </li>
             </ul>
           </div>
@@ -213,7 +209,10 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
             </div>
             <ul class="p-4 space-y-1">
               <li v-for="child in activeMobileCategoryData.items" :key="child.ID">
-                <a href="#" class="block p-3 rounded-md hover:bg-gray-700">{{ child.title }}</a>
+                <NuxtLink :to="doLink(child.blog,child.object,child.id)"
+                          class="block p-3 rounded-md hover:bg-gray-700">
+                  {{ child.title }}
+                </NuxtLink>
               </li>
             </ul>
           </div>
