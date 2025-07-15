@@ -25,7 +25,6 @@ const activeMobileCategoryData = computed(() => {
 });
 
 // --- FUNCTIONS ---
-
 // Toggle functions (same as before)
 const toggleMobileMenu = () => isMobileMenuOpen.value = !isMobileMenuOpen.value;
 const toggleDesktopMenu = () => isDesktopMenuOpen.value = !isDesktopMenuOpen.value;
@@ -62,7 +61,6 @@ watch(isMobileMenuOpen, (isOpen) => {
 onMounted(() => document.addEventListener('click', closeDesktopMenuOnClickOutside));
 onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickOutside));
 </script>
-
 <template>
   <div v-if="status === 'pending'" class="p-4 text-center">Loading...</div>
   <div v-else-if="error" class="p-4 text-center text-red-500">Error loading menu.</div>
@@ -76,40 +74,30 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
         </a>
 
         <!-- Desktop Menu Trigger -->
-        <div class="hidden md:block">
+        <div class="hidden md:flex flex-row items-center justify-center space-x-6">
           <button
               ref="desktopMenuButtonRef"
               @click="toggleDesktopMenu"
               type="button"
-              class="px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-white"
+              class="cursor-pointer font-semibold text-cta-dark hover:text-cta-light transition-colors border-b-3 border-transparent hover:border-b-3 hover:border-cta-light leading-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 focus-visible:ring-white"
               :aria-expanded="isDesktopMenuOpen"
               aria-controls="desktop-menu"
           >
-            Menu
+            <i class="fas fa-bars"></i> Vivre à Marche
           </button>
+          <div class="hidden md:flex items-center space-x-6">
+            <NuxtLink v-for="item in menuItems"
+                      :key="item.id"
+                      :to="`${item.link}`"
+                      class="font-semibold text-cta-dark hover:text-cta-light transition-colors border-b-3 border-transparent hover:border-b-3 hover:border-cta-light leading-6">
+              {{ item.name }}
+            </NuxtLink>
+          </div>
         </div>
-
         <!-- Mobile Menu Trigger (Hamburger) -->
-        <div class="md:hidden">
-          <!-- (Mobile trigger markup is unchanged) -->
-          <button
-              @click="toggleMobileMenu"
-              type="button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              :aria-expanded="isMobileMenuOpen"
-              aria-controls="mobile-menu"
-              aria-label="Open main menu"
-          >
-            <svg v-if="!isMobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-            </svg>
-            <svg v-else class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
+        <NavigationMobileVivreButton v-model:toggle-mobile-menu="toggleMobileMenu"
+                                     :isMobileMenuOpen="isMobileMenuOpen"/>
+        <NavigationSocialIcons/>
       </div>
     </div>
   </header>
