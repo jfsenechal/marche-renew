@@ -23,14 +23,22 @@ async function setCategorySelected(category) {
     element.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
 }
+
+const isSelected = (categoryId) => {
+  return categorySelected.value === categoryId;
+};
+
+//:to="`/${siteSlug}/category/${child.cat_ID}`"
 </script>
 <template>
   <section class="py-2 lg:py-4 bg-background">
     <div class="container mx-auto px-6">
-      <div class="text-center max-w-3xl mx-auto mb-8 lg:mb-16">
+      <CategoryBreadcrumbs :paths="data.paths" :title="data.name"/>
+      <div class="text-center max-w-3xl mx-auto mb-0 lg:mb-4">
         <h2 class="text-3xl lg:text-4xl font-bold mt-3">{{ data.name }}</h2>
         <div class="mt-5 text-base md:text-lg text-text/70 desc-underline"
-             v-html="data.description ??  'De la gestion des déchets au bien-être animal, découvrez toutes les démarches et initiatives environnementales de la commune.'">
+             v-if="data.description.length > 0"
+             v-html="data.description">
         </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -38,8 +46,8 @@ async function setCategorySelected(category) {
             v-for="child in data.children"
             :key="child.cat_ID"
             @click.prevent="setCategorySelected(child)"
-            :to="`/${siteSlug}/category/${child.cat_ID}`"
-            class="cursor-pointer group bg-white p-2 rounded-xl shadow-sm hover:shadow-xl hover:text-citoyen hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
+            class="cursor-pointer group bg-white p-2 rounded-xl shadow-sm hover:shadow-xl hover:text-citoyen hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element"
+            :class="{ 'active-link-class': isSelected(child.cat_ID) }">
           <div class="bg-primary/10 text-primary rounded-full flex flex-row items-center justify-left gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="h-4 w-4 md:size-6 md:w-6 md:h-6 ">
@@ -53,7 +61,12 @@ async function setCategorySelected(category) {
     </div>
   </section>
 </template>
-<style>
+<style>/* Example for styling the active link */
+.active-link-class {
+  box-shadow: 0 0 0 2px orange;
+  transform: translateY(-8px);
+}
+
 .desc-underline a {
   text-decoration: underline;
 }

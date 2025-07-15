@@ -6,7 +6,7 @@ const {data} = defineProps({
 })
 </script>
 <template>
-  <section class="relative h-[40vh] md:h-[60vh] md:min-h-[400px] bg-cover bg-center text-white flex items-center"
+  <section class="relative h-[40vh] md:h-[60vh] md:min-h-[400px] bg-cover bg-center bg-cta-dark text-white flex items-center"
            style="background-image: url('https://picsum.photos/2070');">
     <div class="absolute inset-0 bg-text/50"></div>
     <div class="container mx-auto px-0 md:px-6 relative z-10 text-center animate-fade-in-up"
