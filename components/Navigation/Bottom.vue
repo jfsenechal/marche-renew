@@ -121,7 +121,6 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
       <div class="container mx-auto grid grid-cols-3 gap-8 p-8">
         <!-- Column 1: Parent Categories -->
         <div class="col-span-1 border-r border-gray-200 pr-8">
-          <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">Categories</h3>
           <ul class="mt-4 space-y-1">
             <li v-for="item in data" :key="item.blogid">
               <button
