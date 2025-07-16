@@ -17,7 +17,7 @@ const categoryName = ref('')
   <WidgetsError v-else-if="error"/>
   <section v-else>
     <CategoryHeader :data/>
-    <CategoryMenu :data v-model:category-selected="categorySelected" v-model:category-name="categoryName"/>
+    <CategoryDescription :data v-model:category-selected="categorySelected" v-model:category-name="categoryName"/>
     <CategoryPosts :data :category-selected="categorySelected" :category-name="categoryName"/>
   </section>
 </template>
