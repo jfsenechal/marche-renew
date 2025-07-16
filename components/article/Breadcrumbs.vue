@@ -1,8 +1,10 @@
 <script setup>
-const {path} = defineProps({
-  path: {type: Array, default: []},
+const {paths, title} = defineProps({
+  paths: {type: Array, default: []},
   title: {type: String, default: 'no title'}
 })
+const route = useRoute()
+const siteSlug = computed(() => String(route.params.site || 'citoyen'))
 </script>
 <!-- https://tailwindui.com/components/application-ui/navigation/breadcrumbs -->
 <template>
@@ -12,7 +14,9 @@ const {path} = defineProps({
         <NuxtLink to="/" class="hover:text-blue-600 hover:underline">Accueil</NuxtLink>
       </li>
       <li><span class="select-none">/</span></li>
-      <li><a href="#" class="hover:text-blue-600 hover:underline">Actualités</a></li>
+      <li v-for="item in paths" :key="item.id">
+        <a :href="`/${siteSlug}/category/${item.id}`" class="hover:text-blue-600 hover:underline">{{ item.name }}</a>
+      </li>
       <li><span class="select-none">/</span></li>
       <li aria-current="page" class="font-medium text-slate-700 truncate max-w-[200px] sm:max-w-none">
         {{ title }}
