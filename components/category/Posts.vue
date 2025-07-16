@@ -31,10 +31,10 @@ const siteSlug = computed(() => String(route.params.site || 'citoyen'))
             :key="post.ID"
             class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out animated-element">
           <h3 class="text-lg md:text-xl font-bold">
-            <NuxtLink :to="`/${siteSlug}/article/${categorySelected}/${post.ID}`">{{ post.post_title }}</NuxtLink>
+            <NuxtLink :to="`/${siteSlug}/${post.typejfs}/${categorySelected}/${post.id}`">{{ post.post_title }}</NuxtLink>
           </h3>
-          <p class="mt-2 text-text/70 line-clamp-3" v-if="post.post_excerpt" v-html="post.post_excerpt"></p>
-          <NuxtLink :to="`/${siteSlug}/article/${categorySelected}/${post.ID}`"
+          <p class="mt-2  line-clamp-3" v-if="post.post_excerpt" v-html="post.post_excerpt"></p>
+          <NuxtLink :to="`/${siteSlug}/${post.typejfs}/${categorySelected}/${post.id}`"
                     class="inline-block font-semibold text-primary mt-6 group-hover:underline group-hover:text-citoyen">
             En savoir plus →
           </NuxtLink>
