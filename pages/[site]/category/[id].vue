@@ -1,14 +1,12 @@
 <script setup>
 const route = useRoute()
-const siteSlug = computed(() => String(route.params.site || 'citoyen'))
-const categories = computed(() => String(route.params.categories || 'Pas de categories parent'))
-const categorySlug = computed(() => String(route.params.categorySlug || '/'))
-const categoryid = useRoute().params.id
+const siteSlug = computed(() => String(route.params.site || 'citoyen').toLowerCase())
+const categoryId = useRoute().params.id
 const {
   status,
   data,
   error
-} = categoryGet(siteSlug.value, categoryid)
+} = categoryGet(siteSlug.value, categoryId)
 const categorySelected = ref(0)
 const categoryName = ref('')
 </script>

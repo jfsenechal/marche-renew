@@ -8,7 +8,7 @@ const {
 } = eventGet(codeCgt)
 const image = computed(() => data.images?.length > 0 ? data.images[0] : 'https://pivotmedia.tourismewallonie.be/OTH-A0-00UE-0HH1/OTH-A0-00UE-0HH1.jpg')
 const image2 = computed(() => 'https://pivotmedia.tourismewallonie.be/OTH-A0-00UE-0HH1/OTH-A0-00UE-0HH1.jpg')
-const paths = []
+const paths = [{name:'Agenda',term_id:5, url:'/agenda'}]
 </script>
 <template>
   <section>
@@ -25,7 +25,7 @@ const paths = []
             </p>
 
             <div class="fade-in-up">
-              <p>To do details agenda</p>
+              <p class="text-4xl text-red-500 font-bold text-center">To do details agenda</p>
               <AgendaDates :offre="data"/>
               <ul class="flex flex-wrap gap-2">
 
