@@ -1,7 +1,7 @@
 export default () => {
-    console.log(`https://www.marche.be/nuxt/events.php`)
+    console.log(`https://visitmarche.be/api/events.php`)
     const {status, data, error} = useFetch(
-        `https://www.marche.be/nuxt/events.php`
+        `https://visitmarche.be/api/events.php`
     );
     return {
         status,

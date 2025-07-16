@@ -13,8 +13,10 @@ const props = defineProps({
 //const day = computed(() => props.event.date.getDate());
 const day = computed(() => props.event.shortCutDateEvent["day"]);
 const month = computed(() => props.event.shortCutDateEvent["month"]);
+const year = computed(() => props.event.shortCutDateEvent["year"]);
 //const month = computed(() => props.event.date.toLocaleString('fr-FR', { month: 'short' }).toUpperCase().replace('.', ''));
-const image = computed(()=> props.event.images.length > 0 ? props.event.images[0] : 'https://pivotmedia.tourismewallonie.be/OTH-A0-00UE-0HH1/OTH-A0-00UE-0HH1.jpg')
+const image = computed(() => props.event.images.length > 0 ? props.event.images[0] : 'https://pivotmedia.tourismewallonie.be/OTH-A0-00UE-0HH1/OTH-A0-00UE-0HH1.jpg')
+const tags = computed(() => props.event.tagsFormatted.filter((tag) => tag.urn !== 'urn:fam:9'))
 </script>
 <template>
   <!--
@@ -44,6 +46,7 @@ const image = computed(()=> props.event.images.length > 0 ? props.event.images[0
       <div class="flex flex-col items-center justify-center bg-slate-50 p-4 text-center border-r border-slate-200">
         <span class="text-3xl font-bold text-slate-800">{{ day }}</span>
         <span class="text-sm font-semibold text-slate-500 uppercase tracking-wide">{{ month }}</span>
+        <span class="text-sm font-semibold text-slate-500 uppercase tracking-wide">{{ year }}</span>
       </div>
 
       <!-- Content Section -->
@@ -56,16 +59,12 @@ const image = computed(()=> props.event.images.length > 0 ? props.event.images[0
                   d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                   clip-rule="evenodd"/>
           </svg>
-          <span>{{ event.locality }} | {{ event.shortCutDateEvent["year"] }}</span>
+          <span>{{ event.locality }}</span>
+        </div>
+        <div class="flex flex-row gap-2 items-center">
+          <span v-for="(tag,index) in tags" :key="index">{{ tag.name }}</span>
         </div>
 
-        <p class="text-slate-700 text-sm flex-grow mb-4">{{ event.description }}</p>
-
-        <a href="#"
-           class="mt-auto self-start text-sky-600 font-semibold text-sm hover:text-sky-500 transition-colors duration-200 group-hover:underline">
-          En savoir plus
-          <span class="ml-1 transition-transform duration-300 inline-block group-hover:translate-x-1">→</span>
-        </a>
       </div>
     </div>
   </article>

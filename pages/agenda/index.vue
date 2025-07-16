@@ -34,7 +34,7 @@ const paths = []
       <div v-if="data.length > 0" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
         <AgendaEventCard
             v-for="(event, index) in data"
-            :key="event.codeCgt"
+            :key="event.id"
             :event="event"
             :index="index"
         />
@@ -43,8 +43,6 @@ const paths = []
       <!-- No Results Message -->
       <div v-else class="text-center py-16 px-6 bg-white rounded-lg shadow-sm">
         <h3 class="text-2xl font-semibold text-slate-800">Aucun événement trouvé</h3>
-        <p class="text-slate-500 mt-2">Essayez de modifier vos critères de recherche ou de réinitialiser les
-          filtres.</p>
       </div>
 
     </div>
