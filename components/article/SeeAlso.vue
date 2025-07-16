@@ -1,9 +1,5 @@
 <script setup>
-const posts = [
-  {name: 'Journée du Bien-Être Animal (25 septembre)', id: 1},
-  {name: 'Journée du Bien-Être Animal (25 septembre)', id: 2},
-  {name: 'Journée du Bien-Être Animal (25 septembre)', id: 3}
-]
+const {articles} = defineProps({articles: {type: Array, default:[]}})
 </script>
 <template>
   <section class="bg-gray-50 py-16">
