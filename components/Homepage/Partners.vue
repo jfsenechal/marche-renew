@@ -32,7 +32,7 @@
             :href="item.url"
             target="_blank" rel="noopener noreferrer" class="group">
           <img
-              class="h-24 w-auto object-contain opacity-70 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105"
+              class="h-12 md:h-24 w-auto object-contain opacity-70 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105"
               :src="item.img"
               :alt="item.alt">
         </a>

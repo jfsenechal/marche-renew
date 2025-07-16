@@ -37,7 +37,7 @@ export const widgetsHomeGet = [
         intro: "Annonces nécrologiques  de notre commune",
         class: "bg-img-widgets-5",
         icon: "fas fa-cross fa-3x",
-        url: "/citoyen/article/9635",
+        url: "/citoyen/article/133/9635",
         id: 5,
     }
 ];

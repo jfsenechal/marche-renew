@@ -96,7 +96,7 @@
         </NuxtLink>
 
         <!-- Card 5: Avis de décès -->
-        <NuxtLink to="/citoyen/article/9635"
+        <NuxtLink to="/citoyen/article/133/9635"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 

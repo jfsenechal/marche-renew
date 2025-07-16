@@ -20,7 +20,7 @@ function monthName(monthNumber) {
     <div class="space-y-6" v-else>
       <NuxtLink v-for="item in data.slice(0, 9)"
                 :key="item.codeCgt"
-                :to="`agenda/${item.codeCgt}`"
+                :to="`/agenda/${item.codeCgt}`"
                 class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
         <div
             class="bg-green-600 text-white p-4 flex flex-col items-center justify-center w-24 text-center flex-shrink-0">

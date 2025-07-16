@@ -15,7 +15,7 @@ const {
         <!-- Related Article Card 1 -->
         <NuxtLink
             class="group block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            :to="`${item.blog}/article/${item.ID}`"
+            :to="`${item.blog}/article/11/${item.ID}`"
             v-for="item in data.slice(0, 6)"
             :key="item.ID">
           <img class="h-48 w-full object-cover"

@@ -36,7 +36,7 @@ const shortcuts = [
   {
     name: 'Piscine', description: 'Horaires et tarifs.',
     icon: 'fas fa-person-swimming',
-    url: '/sport/article/5153',
+    url: '/sport/article/71/5153',
     id: 4,
     color: 'text-red-600',
     bgcolor: 'bg-red-100',
