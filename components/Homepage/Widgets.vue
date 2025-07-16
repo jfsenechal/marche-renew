@@ -9,9 +9,9 @@
         Explorez les services, les atouts touristiques et les opportunités qu'offre notre belle commune.
       </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <a v-for="item in widgetsHomeGet"
+        <NuxtLink v-for="item in widgetsHomeGet"
            :key="item.id"
-           :href="item.url"
+           :to="item.url"
            class="group block bg-white p-4 md:p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
           <div class="text-center">
             <i :class="`${item.icon} text-cta-dark mb-4 transition-all duration-300 group-hover:text-citoyen group-hover:scale-110`"></i>
@@ -24,7 +24,7 @@
                         En savoir plus →
                     </span>
           </div>
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </section>

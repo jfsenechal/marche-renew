@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const {params} = useRoute()
 const site = computed(() => String(params.site || 'citoyen'))
 const {data} = defineProps({
@@ -6,7 +6,7 @@ const {data} = defineProps({
     type: Object, required: true, default: null
   }
 })
-const paths: string[] = []
+const paths = computed(() => data.paths)
 </script>
 <template>
   <div class="relative z-20 -mt-16 md:-mt-24">

@@ -1,12 +1,13 @@
 <script setup>
-const {path, params} = useRoute()
+const {params} = useRoute()
 const siteSlug = computed(() => String(params.site || 'citoyen'))
-const articleId = useRoute().params.id
+const articleId = params.id
+const categorySelected = Number(params.category ?? 0)
 const {
   status,
   data,
   error
-} = articleGet(siteSlug.value, articleId);
+} = articleGet(siteSlug.value, articleId, categorySelected);
 
 let observer = null;
 onMounted(() => {

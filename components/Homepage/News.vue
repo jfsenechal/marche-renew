@@ -26,8 +26,9 @@ const {
         </NuxtLink>
       </div>
     </div>
-    <a href="/news"
-       class="inline-block mt-8 bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors">
-      Toutes les actualités</a>
+    <NuxtLink to="/news"
+              class="inline-block mt-8 bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors">
+      Toutes les actualités
+    </NuxtLink>
   </section>
 </template>

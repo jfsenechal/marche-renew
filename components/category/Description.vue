@@ -33,7 +33,7 @@ const isSelected = (categoryId) => {
 <template>
   <section class="py-2 lg:py-4 bg-background">
     <div class="container mx-auto px-6">
-      <CategoryBreadcrumbs :paths="data.paths" :title="data.name"/>
+      <WidgetsBreadcrumbs :paths="data.paths" :title="data.name"/>
       <div class="text-center max-w-6xl mx-auto mb-0 lg:mb-4">
         <h2 class="text-3xl lg:text-4xl font-bold mt-3">{{ data.name }}</h2>
         <div class="mt-5 text-gray-600 md:text-lg text-text/70 desc-underline"

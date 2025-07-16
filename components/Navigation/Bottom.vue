@@ -69,9 +69,9 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
   <header class="bg-gray-800 text-white shadow-md relative z-40" v-else>
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-16">
-        <a href="/" class="">
+        <NuxtLink to="/" class="">
           <img src="/images/img_logo.png" alt="logo" class="h-10 w-16 xl:h-14 xl:w-24"/>
-        </a>
+        </NuxtLink>
 
         <!-- Desktop Menu Trigger -->
         <div class="hidden md:flex flex-row items-center justify-center space-x-6">

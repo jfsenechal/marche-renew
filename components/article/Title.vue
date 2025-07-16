@@ -5,13 +5,11 @@ const {data} = defineProps({
   tags: {type: Array, required: true},
   paths: {type: Array, required: true},
 })
-const paths = []
 </script>
 <template>
   <div class="max-4w-5xl mx-auto px-0 py-8 md:py-0 animate-fade-in-down">
     <!-- Breadcrumbs -->
-    <ArticleBreadcrumbs :paths="paths" :title="title"/>
-
+    <WidgetsBreadcrumbs :paths="paths" :title="title"/>
     <!-- Category Tag -->
     <div class="mt-6">
       <NuxtLink

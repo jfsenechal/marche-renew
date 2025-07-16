@@ -22,7 +22,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Card 1: Avis de publication -->
-        <a href="/administration/category/15"
+        <NuxtLink to="/administration/category/15"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 
@@ -39,10 +39,10 @@
               Enquêtes publiques, assemblées...
             </p>
           </div>
-        </a>
+        </NuxtLink>
 
         <!-- Card 2: Économie -->
-        <a href="https://adl.marche.be"
+        <NuxtLink to="https://adl.marche.be"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;">
 
@@ -57,10 +57,10 @@
               Infos pratiques, commerces locaux…
             </p>
           </div>
-        </a>
+        </NuxtLink>
 
         <!-- Card 3: Participation citoyenne -->
-        <a href="https://jeparticipe.marche.be/"
+        <NuxtLink to="https://jeparticipe.marche.be/"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;">
 
@@ -75,10 +75,10 @@
               Plateforme de l’enveloppe participative...
             </p>
           </div>
-        </a>
+        </NuxtLink>
 
         <!-- Card 4: Plateforme de volontariat -->
-        <a href="https://volontariat.marche.be/"
+        <NuxtLink to="https://volontariat.marche.be/"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1000&auto=format=fit&crop'); background-size: cover; background-position: center;">
 
@@ -93,10 +93,10 @@
               Offres et demandes du tissu associatif
             </p>
           </div>
-        </a>
+        </NuxtLink>
 
         <!-- Card 5: Avis de décès -->
-        <a href="/citoyen/article/9635"
+        <NuxtLink to="/citoyen/article/9635"
            class="group relative block rounded-xl overflow-hidden shadow-lg min-h-[220px] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75"
            style="background-image: url('https://picsum.photos/2070'); background-size: cover; background-position: center;">
 
@@ -111,7 +111,7 @@
               Annonces nécrologiques de notre commune
             </p>
           </div>
-        </a>
+        </NuxtLink>
 
         <!-- You can add a 6th card here to make the grid even on desktop -->
 

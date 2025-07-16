@@ -33,8 +33,9 @@ function monthName(monthNumber) {
         </div>
       </NuxtLink>
     </div>
-    <a href="/agenda"
-       class="inline-block mt-8 bg-green-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-green-700 transition-colors">Tout
-      l'agenda</a>
+    <NuxtLink to="/agenda"
+              class="inline-block mt-8 bg-green-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-green-700 transition-colors">
+      Tout l'agenda
+    </NuxtLink>
   </section>
 </template>
