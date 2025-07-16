@@ -88,7 +88,7 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
           <NavigationShortcuts/>
         </div>
         <!-- Mobile Menu Trigger (Hamburger) -->
-        <NavigationMobileVivreButton v-model:toggle-mobile-menu="toggleMobileMenu"
+        <NavigationMobileVivreButton @toggle-menu="toggleMobileMenu"
                                      :isMobileMenuOpen="isMobileMenuOpen"/>
         <NavigationSocialIcons/>
       </div>

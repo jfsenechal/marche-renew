@@ -1,14 +1,18 @@
 <script setup>
-const {toggleMobileMenu, isMobileMenuOpen} = defineProps({
-  toggleMobileMenu: {type: Function},
+const {isMobileMenuOpen} = defineProps({
   isMobileMenuOpen: {type: Boolean}
 })
+const emit = defineEmits(['toggle-menu']);
+
+function handleClick() {
+  emit('toggle-menu');
+}
 </script>
 <template>
   <div class="md:hidden">
     <!-- (Mobile trigger markup is unchanged) -->
     <button
-        @click="toggleMobileMenu"
+        @click="handleClick"
         type="button"
         class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
         :aria-expanded="isMobileMenuOpen"
