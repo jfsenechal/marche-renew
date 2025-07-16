@@ -10,11 +10,9 @@ const props = defineProps({
   }
 });
 
-//const day = computed(() => props.event.date.getDate());
 const day = computed(() => props.event.shortCutDateEvent["day"]);
 const month = computed(() => props.event.shortCutDateEvent["month"]);
 const year = computed(() => props.event.shortCutDateEvent["year"]);
-//const month = computed(() => props.event.date.toLocaleString('fr-FR', { month: 'short' }).toUpperCase().replace('.', ''));
 const image = computed(() => props.event.images.length > 0 ? props.event.images[0] : 'https://pivotmedia.tourismewallonie.be/OTH-A0-00UE-0HH1/OTH-A0-00UE-0HH1.jpg')
 const tags = computed(() => props.event.tagsFormatted.filter((tag) => tag.urn !== 'urn:fam:9'))
 </script>
@@ -29,17 +27,17 @@ const tags = computed(() => props.event.tagsFormatted.filter((tag) => tag.urn !=
       class="group flex flex-col bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 ease-in-out animate-card-in"
       :style="{ animationDelay: `${index * 100}ms` }"
   >
-    <div class="relative">
-      <img
-          :src="image"
-          :alt="`Image for ${event.nom}`"
-          class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-      />
+      <NuxtLink :to="`/agenda/${event.codeCgt}`" class="block relative">
+        <img
+            :src="image"
+            :alt="`Image for ${event.nom}`"
+            class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </NuxtLink>
       <span
-          :class="['text-citoyen', 'absolute top-3 left-3 text-white text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-md']">
+          :class="['text-citoyen', 'absolute top-3 left-3 text-white font-bold uppercase tracking-wider px-2 py-1 rounded-md']">
         {{ event.localite }}
       </span>
-    </div>
 
     <div class="flex flex-grow">
       <!-- Date Section -->
@@ -51,7 +49,9 @@ const tags = computed(() => props.event.tagsFormatted.filter((tag) => tag.urn !=
 
       <!-- Content Section -->
       <div class="p-5 flex flex-col flex-grow">
-        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">{{ event.nom }}</h3>
+        <NuxtLink :to="`/agenda/${event.codeCgt}`">
+          <h3 class="text-lg font-bold text-cta-dark mb-2 leading-tight">{{ event.nom }}</h3>
+        </NuxtLink>
 
         <div class="flex items-center text-sm text-slate-600 mb-3">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
