@@ -12,7 +12,7 @@ const paths = []
   <section class="bg-slate-50 " v-else>
     <ArticleHeader thumbnail="https://picsum.photos/2070"/>
     <div class="container mx-auto mb-2 px-4 sm:px-6 lg:px-8">
-      <ArticleBreadcrumbs :paths="paths" title="L'actualités"/>
+      <WidgetsBreadcrumbs :paths="paths" title="L'actualités"/>
       <h2 class="text-3xl font-bold text-center mb-10">L'actualités</h2>
       <WidgetsLoader v-if="status === 'pending'"/>
       <WidgetsError v-else-if="error"/>

@@ -23,7 +23,7 @@ const paths = []
       </div>
     </header>
     <div class="container mx-auto px-4 py-8 md:py-16">
-      <CategoryBreadcrumbs :paths="paths" title="Agenda des manifestations"/>
+      <WidgetsBreadcrumbs :paths="paths" title="Agenda des manifestations"/>
       <div class="text-center max-w-3xl mx-auto mb-0 lg:mb-6">
         <h2 class="text-3xl lg:text-4xl font-bold mt-3">Agenda des manifestations</h2>
         <div class="mt-5 text-base md:text-lg text-text/70">

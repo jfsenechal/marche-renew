@@ -36,7 +36,7 @@ const tags = computed(() => props.event.tagsFormatted.filter((tag) => tag.urn !=
       </NuxtLink>
       <span
           :class="['text-citoyen', 'absolute top-3 left-3 text-white font-bold uppercase tracking-wider px-2 py-1 rounded-md']">
-        {{ event.localite }}
+        {{ event.locality }}
       </span>
 
     <div class="flex flex-grow">
