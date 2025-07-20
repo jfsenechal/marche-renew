@@ -18,7 +18,7 @@ function monthName(monthNumber) {
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error"/>
     <div class="space-y-6" v-else>
-      <NuxtLink v-for="item in data.slice(0, 9)"
+      <NuxtLink v-for="item in data.slice(0, 8)"
                 :key="item.codeCgt"
                 :to="`/agenda/${item.codeCgt}`"
                 class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">

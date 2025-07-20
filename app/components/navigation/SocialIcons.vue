@@ -1,6 +1,9 @@
+<script setup>
+const isModalOpen = defineModel('is-modal-open')
+</script>
 <template>
   <div class="flex space-x-6">
-        <button class=" md:inline text-gray-600 hover:text-cta-light">
+        <button @click="isModalOpen=true"  class="cursor-pointer md:inline text-gray-600 hover:text-cta-light">
           <i class="fas fa-search"></i>
         </button>
         <button class="hidden text-gray-600 text-xl hover:text-blue-400  transition-colors">

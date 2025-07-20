@@ -7,6 +7,7 @@ const {error} = defineProps({
   },
 })
 console.log(JSON.stringify(error))
+console.log("err"+error)
 </script>
 <template>
   <div class="flex flex-row items-center text-red-600 p-4 m-4" v-if="error">

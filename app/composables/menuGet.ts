@@ -4,7 +4,7 @@ export default () => {
         status,
         data,
         error
-    } = useFetch(`https://www.marche.be/nuxt/menu.php`)
+    } = useLazyFetch(`https://www.marche.be/nuxt/menu.php`)
     return {
         status,
         data,

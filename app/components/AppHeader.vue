@@ -57,7 +57,7 @@ watch(isMobileMenuOpen, (isOpen) => {
     }, 300);
   }
 });
-
+const isModalOpen = ref(false)
 onMounted(() => document.addEventListener('click', closeDesktopMenuOnClickOutside));
 onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickOutside));
 </script>
@@ -90,9 +90,10 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
         <!-- Mobile Menu Trigger (Hamburger) -->
         <NavigationMobileVivreButton @toggle-menu="toggleMobileMenu"
                                      :isMobileMenuOpen="isMobileMenuOpen"/>
-        <NavigationSocialIcons/>
+        <NavigationSocialIcons v-model:is-modal-open="isModalOpen"/>
       </div>
     </div>
+    <SearchModal v-model:is-modal-open="isModalOpen"/>
   </header>
 
   <!-- Desktop Menu Panel -->
