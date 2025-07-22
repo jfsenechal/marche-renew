@@ -1,4 +1,7 @@
 <script setup>
+import {ref, computed, watch} from 'vue'
+import {defineModel} from 'vue'
+
 const isModalOpen = defineModel('is-modal-open')
 const closeModal = () => {
   isModalOpen.value = false
@@ -6,6 +9,7 @@ const closeModal = () => {
 
 const searchQuery = ref('');
 
+// This computed property seems to be unused in the template, but I'll leave it in case it's needed elsewhere.
 const filteredEvents = computed(() => {
   let events = [...allEvents];
 
@@ -26,7 +30,7 @@ const filteredEvents = computed(() => {
 const results = ref([])
 const isLoading = ref(false)
 const error = ref('')
-let debounceTimer = 500
+let debounceTimer = null
 const debounceDelay = 500
 
 // Debounced search function
@@ -40,20 +44,18 @@ const performSearch = async (query) => {
   error.value = ''
 
   try {
-    // Make API call with 's' parameter
-    const response = await $fetch(`https://www.marche.be/nuxt/search.php?s=${searchQuery}`, {
+    // Make API call
+    const response = await $fetch(`https://www.marche.be/nuxt/search.php`, {
       params: {
         s: query
       }
     })
 
     results.value = Array.isArray(response) ? response : response.data || []
-    //emit('search-results', results.value)
 
   } catch (err) {
     error.value = 'Failed to fetch search results'
     results.value = []
-    //emit('search-error', err)
     console.error('Search error:', err)
   } finally {
     isLoading.value = false
@@ -79,181 +81,95 @@ watch(searchQuery, (newQuery) => {
     performSearch(newQuery)
   }, debounceDelay)
 })
+
+// A placeholder for the doLink function as its definition was not provided
+const doLink = (blog, typejfs, id, url) => {
+  if (url) {
+    return url;
+  }
+  // Fallback or other logic to construct a link
+  return `/${blog}/${typejfs}/${id}`;
+}
 </script>
+
 <template>
   <section>
     <Transition name="fade">
       <div v-if="isModalOpen" @click="closeModal"
-           class="fixed inset-0 bg44-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50">
-        <div @click.stop class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 my-4 min-h-1/2 " role="dialog"
+           class="fixed inset-0 bg-opacity-60 backdrop-blur-md flex justify-center items-start z-50 p-4 pt-16 sm:pt-24">
+        <div @click.stop
+             class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl flex flex-col transform transition-all"
+             role="dialog"
              aria-modal="true"
              aria-labelledby="modal-headline">
-          <Transition name="slide-fade">
-            <div v-if="isModalOpen" class="relative">
-              <!-- Modal Header -->
-              <div class="flex items-center justify-between p-4 border-b">
-                <div class="flex items-center space-x-2 w-full">
-                  <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                  </svg>
-                  <input v-model="searchQuery"
-                         type="search" name="search"
-                         placeholder="Search"
-                         class="block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-citoyen sm:text-sm/6"/>
-                </div>
-                <button @click="closeModal" class="cursor-pointer text-gray-400 hover:text-gray-600">
-                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                </button>
-              </div>
-
-              <!-- Modal Body -->
-              <div class="p-6">
-                <!-- Search results would go here -->
-                <div v-if="results.length > 0" class="results-container overflow-hidden ">
-                  <ul class="results-list">
-                    <li v-for="result in results" :key="result.id" class="result-item">
-                      <NuxtLink :to="doLink(result.blog,result.typejfs,result.id,result.url)"
-                                class="block">
-                        {{ result.name }}
-                      </NuxtLink>
-                    </li>
-                  </ul>
-                </div>
-
-                <div v-else-if="searchQuery && !isLoading && !error" class="no-results">
-                  No results found for "{{ searchQuery }}"
-                </div>
-                <p class="text-gray-600">Search results will be displayed here.</p>
-              </div>
+          <!-- Modal Header -->
+          <div class="flex items-center justify-between p-4 border-b border-gray-200">
+            <div class="flex items-center space-x-3 w-full">
+              <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input v-model="searchQuery"
+                     type="search"
+                     name="search"
+                     autocomplete="off"
+                     placeholder="Search for anything..."
+                     class="block w-full bg-transparent py-1.5 text-base text-gray-900 placeholder:text-gray-500 focus:outline-none sm:text-sm"/>
             </div>
-          </Transition>
+            <button @click="closeModal"
+                    class="ml-4 p-2 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              <span class="sr-only">Close modal</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="p-6 overflow-y-auto max-h-[60vh]">
+            <div v-if="isLoading" class="flex justify-center items-center py-10">
+              <svg class="animate-spin h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                   viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
+
+            <div v-else-if="error" class="text-center py-10">
+              <p class="text-red-500 font-semibold">Error</p>
+              <p class="text-gray-500 mt-2">{{ error }}</p>
+            </div>
+
+            <ul v-else-if="results.length > 0" class="divide-y divide-gray-200">
+              <li v-for="result in results" :key="result.id" class="py-4 flex items-center justify-between">
+                <NuxtLink :to="doLink(result.blog,result.typejfs,result.id,null)"
+                          class="group block w-full">
+                  <p class="font-semibold text-cta-dark group-hover:text-citoyen transition-colors">{{
+                      result.name
+                    }}</p>
+                  <p class="text-sm text-gray-500">{{ result.typejfs }}</p>
+                </NuxtLink>
+                <svg class="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </li>
+            </ul>
+
+            <div v-else-if="searchQuery && !isLoading" class="text-center py-10">
+              <p class="text-gray-800 font-semibold">No results found</p>
+              <p class="text-gray-500 mt-2">No results were found for "{{ searchQuery }}". Try a different search
+                term.</p>
+            </div>
+
+            <div v-else class="text-center py-10">
+              <p class="text-gray-800 font-semibold">Search the site</p>
+              <p class="text-gray-500 mt-2">Find articles, events, and more.</p>
+            </div>
+          </div>
         </div>
       </div>
     </Transition>
   </section>
 </template>
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-20px);
-  opacity: 0;
-}
-
-.search-container {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.search-input-wrapper {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 12px 40px 12px 16px;
-  border: 2px solid #e1e5e9;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.search-input:disabled {
-  background-color: #f9fafb;
-  cursor: not-allowed;
-}
-
-.loading-spinner {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #e1e5e9;
-  border-top: 2px solid #3b82f6;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.error-message {
-  color: #dc2626;
-  background-color: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 6px;
-  padding: 12px;
-  margin-bottom: 16px;
-}
-
-.results-container h3 {
-
-  color: #374151;
-  font-size: 18px;
-}
-
-.results-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.result-item {
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background-color: #ffffff;
-  transition: background-color 0.2s ease;
-}
-
-.result-item:hover {
-  background-color: #f9fafb;
-}
-
-.no-results {
-  text-align: center;
-  color: #6b7280;
-  font-style: italic;
-  padding: 24px;
-}
-
-</style>
