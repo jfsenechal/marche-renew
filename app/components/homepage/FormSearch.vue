@@ -1,4 +1,5 @@
-<template><div class="mt-8 max-w-xl mx-auto px-4 md:px-0"> <!-- Added padding for mobile -->
+<template>
+  <div class="mt-8 max-w-xl mx-auto px-4 md:px-0">
   <form action="/search" method="GET" role="search">
     <label for="hero-search" class="sr-only">Rechercher sur le site</label>
     <div class="relative">

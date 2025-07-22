@@ -61,9 +61,13 @@ watch(searchQuery, (newQuery) => {
 
 function setLink(item) {
   const values = extractId(item.id)
-  console.log(values)
 
   return doLink(values.site, values.type, values.id)
+}
+
+function extractType(item) {
+  const values = extractId(item.id)
+  return values.type
 }
 </script>
 <template>
@@ -121,7 +125,7 @@ function setLink(item) {
                           class="group block w-full">
                   <p class="font-semibold text-cta-dark group-hover:text-citoyen transition-colors">
                     {{ result.name }}</p>
-                  <p class="text-sm text-gray-500">{{ result.typejfs }}</p>
+                  <p class="text-sm text-gray-500">{{ extractType(result) }}</p>
                 </NuxtLink>
                 <svg class="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none"
                      viewBox="0 0 24 24" stroke="currentColor">
