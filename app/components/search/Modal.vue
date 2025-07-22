@@ -98,9 +98,9 @@ watch(searchQuery, (newQuery) => {
                           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                   </svg>
                   <input v-model="searchQuery"
-                         type="text"
-                         placeholder="Search..."
-                         class="border-none block focus:ring-0 w-full"/>
+                         type="search" name="search"
+                         placeholder="Search"
+                         class="block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-citoyen sm:text-sm/6"/>
                 </div>
                 <button @click="closeModal" class="cursor-pointer text-gray-400 hover:text-gray-600">
                   <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,7 +112,7 @@ watch(searchQuery, (newQuery) => {
               <!-- Modal Body -->
               <div class="p-6">
                 <!-- Search results would go here -->
-                <div v-if="results.length > 0" class="results-container">
+                <div v-if="results.length > 0" class="results-container overflow-hidden ">
                   <ul class="results-list">
                     <li v-for="result in results" :key="result.id" class="result-item">
                       <NuxtLink :to="doLink(result.blog,result.typejfs,result.id,result.url)"
