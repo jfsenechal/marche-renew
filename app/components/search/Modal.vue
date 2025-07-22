@@ -1,32 +1,9 @@
 <script setup>
-import {ref, computed, watch} from 'vue'
-import {defineModel} from 'vue'
-
 const isModalOpen = defineModel('is-modal-open')
 const closeModal = () => {
   isModalOpen.value = false
 }
-
 const searchQuery = ref('');
-
-// This computed property seems to be unused in the template, but I'll leave it in case it's needed elsewhere.
-const filteredEvents = computed(() => {
-  let events = [...allEvents];
-
-  // Filter by search query
-  if (searchQuery.value) {
-    const lowerCaseQuery = searchQuery.value.toLowerCase();
-
-    events = events.filter(event =>
-        event.title.toLowerCase().includes(lowerCaseQuery) ||
-        event.description.toLowerCase().includes(lowerCaseQuery) ||
-        event.location.toLowerCase().includes(lowerCaseQuery)
-    );
-  }
-
-  return events;
-});
-
 const results = ref([])
 const isLoading = ref(false)
 const error = ref('')
@@ -82,16 +59,13 @@ watch(searchQuery, (newQuery) => {
   }, debounceDelay)
 })
 
-// A placeholder for the doLink function as its definition was not provided
-const doLink = (blog, typejfs, id, url) => {
-  if (url) {
-    return url;
-  }
-  // Fallback or other logic to construct a link
-  return `/${blog}/${typejfs}/${id}`;
+function setLink(item) {
+  const values = extractId(item.id)
+  console.log(values)
+
+  return doLink(values.site, values.type, values.id)
 }
 </script>
-
 <template>
   <section>
     <Transition name="fade">
@@ -143,11 +117,10 @@ const doLink = (blog, typejfs, id, url) => {
 
             <ul v-else-if="results.length > 0" class="divide-y divide-gray-200">
               <li v-for="result in results" :key="result.id" class="py-4 flex items-center justify-between">
-                <NuxtLink :to="doLink(result.blog,result.typejfs,result.id,null)"
+                <NuxtLink :to="setLink(result)"
                           class="group block w-full">
-                  <p class="font-semibold text-cta-dark group-hover:text-citoyen transition-colors">{{
-                      result.name
-                    }}</p>
+                  <p class="font-semibold text-cta-dark group-hover:text-citoyen transition-colors">
+                    {{ result.name }}</p>
                   <p class="text-sm text-gray-500">{{ result.typejfs }}</p>
                 </NuxtLink>
                 <svg class="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none"
