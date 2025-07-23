@@ -1,4 +1,9 @@
 <script setup>
+const {
+  status,
+  data:events,
+  error
+} = eventsGet()
 
 function monthName(monthNumber) {
   // A more complete implementation for example
@@ -11,7 +16,9 @@ const data = []
 <template>
   <section>
     <h2 class="text-xl md:text-3xl font-bold mb-6">Prochains Événements</h2>
-    <div class="space-y-6" >
+    <WidgetsLoader v-if="status === 'pending'"/>
+    <WidgetsError v-else-if="error"/>
+    <div class="space-y-6" v-else>
       <NuxtLink v-for="item in data.slice(0, 8)"
                 :key="item.codeCgt"
                 :to="`/agenda/${item.codeCgt}`"
