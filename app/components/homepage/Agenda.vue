@@ -5,13 +5,12 @@ const {
   error
 } = eventsGet(8)
 
+const date = new Date();
+
 function monthName(monthNumber) {
-  // A more complete implementation for example
-  const date = new Date();
   date.setMonth(monthNumber - 1);
   return date.toLocaleString('fr-FR', {month: 'long'});
 }
-const data = []
 </script>
 <template>
   <section>
