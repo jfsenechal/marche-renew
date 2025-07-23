@@ -6,7 +6,7 @@ const {error} = defineProps({
     default: null
   },
 })
-console.log(JSON.stringify(error))
+console.log("error json" + JSON.stringify(error))
 console.log("err"+error)
 </script>
 <template>
