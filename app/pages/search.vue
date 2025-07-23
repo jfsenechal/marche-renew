@@ -1,8 +1,10 @@
 <script setup>
 const route = useRoute()
 const keyword = route.query.q ?? ''
-
-const searchQuery = ref(keyword);
+const thumbnail_url = '/images/bg-search.jpeg'
+const paths = []
+const site = computed(() => String(route.params.site || 'citoyen'))
+const searchQuery = ref(null);
 const results = ref([])
 const isLoading = ref(false)
 const error = ref('')
@@ -60,8 +62,6 @@ watch(searchQuery, (newQuery) => {
 
 function setLink(item) {
   const values = extractId(item.id)
-  console.log(values)
-
   return doLink(values.site, values.type, values.id)
 }
 
@@ -70,9 +70,7 @@ function extractType(item) {
   return values.type
 }
 
-const thumbnail_url = '/images/bg-search.jpeg'
-const paths = []
-const site = computed(() => String(route.params.site || 'citoyen'))
+onMounted(() => searchQuery.value = keyword.length > 2 ?  keyword: null)
 </script>
 <template>
   <div class="bg-slate-50 ">
@@ -103,13 +101,9 @@ const site = computed(() => String(route.params.site || 'citoyen'))
                 class="absolute inset-y-0 right-0 flex items-center px-4 md:px-6 bg-citoyen text-white font-semibold rounded-r-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
             >
               <!-- Mobile: Icon only -->
-              <span class="md:hidden">
-          <i class="fas fa-search text-white"></i>
-        </span>
+              <span class="md:hidden"><i class="fas fa-search text-white"></i></span>
               <!-- Desktop: Text only -->
-              <span class="hidden md:inline">
-          Rechercher
-        </span>
+              <span class="hidden md:inline">Rechercher</span>
             </button>
           </div>
         </form>
@@ -119,7 +113,7 @@ const site = computed(() => String(route.params.site || 'citoyen'))
                       class="group block w-full">
               <p class="font-semibold text-cta-dark group-hover:text-citoyen transition-colors">
                 {{ result.name }}</p>
-              <p class="text-sm text-gray-500">{{extractType(result)}}</p>
+              <p class="text-sm text-gray-500">{{ extractType(result) }}</p>
             </NuxtLink>
             <svg class="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none"
                  viewBox="0 0 24 24" stroke="currentColor">
