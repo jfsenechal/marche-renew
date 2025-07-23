@@ -3,7 +3,7 @@ const {
   status,
   data:events,
   error
-} = eventsGet()
+} = eventsGet(8)
 
 function monthName(monthNumber) {
   // A more complete implementation for example
@@ -19,7 +19,7 @@ const data = []
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error"/>
     <div class="space-y-6" v-else>
-      <NuxtLink v-for="item in events.slice(0, 8)"
+      <NuxtLink v-for="item in events"
                 :key="item.codeCgt"
                 :to="`/agenda/${item.codeCgt}`"
                 class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
