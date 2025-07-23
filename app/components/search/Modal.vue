@@ -122,6 +122,7 @@ function extractType(item) {
             <ul v-else-if="results.length > 0" class="divide-y divide-gray-200">
               <li v-for="result in results" :key="result.id" class="py-4 flex items-center justify-between">
                 <NuxtLink :to="setLink(result)"
+                          @click="closeModal"
                           class="group block w-full">
                   <p class="font-semibold text-cta-dark group-hover:text-citoyen transition-colors">
                     {{ result.name }}</p>
