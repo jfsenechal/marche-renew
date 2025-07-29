@@ -8,7 +8,7 @@ const shortcuts = [
     icon: 'fas fa-clock',
     url: '/citoyen/category/38',
     id: 3,
-    color: 'text-citoyen',
+    color: 'text-white',
     bgcolor: 'bg-citoyen-100',
     bgcolorhover: 'group-hover:bg-citoyen'
   },
@@ -19,7 +19,7 @@ const shortcuts = [
     icon: 'fas fa-id-card',
     url: '/tourisme/article/20644',
     id: 1,
-    color: 'text-citoyen',
+    color: 'text-white',
     bgcolor: 'bg-citoyen-100',
     bgcolorhover: 'group-hover:bg-citoyen'
   },
@@ -28,7 +28,7 @@ const shortcuts = [
     icon: 'fas fa-person-swimming',
     url: '/sport/article/71/5153',
     id: 4,
-    color: 'text-citoyen',
+    color: 'text-white',
     bgcolor: 'bg-citoyen-100',
     bgcolorhover: 'group-hover:bg-citoyen'
   },
@@ -38,14 +38,14 @@ const shortcuts = [
     icon: 'fas fa-square-parking',
     url: '/citoyen/category/119',
     id: 2,
-    color: 'text-citoyen',
+    color: 'text-white',
     bgcolor: 'bg-citoyen-100',
     bgcolorhover: 'group-hover:bg-citoyen'
   },
   {
     name: 'Enfance Jeunesse', description: 'Activités, écoles et aides',
     icon: 'fas fa-child',
-    color: 'text-citoyen',
+    color: 'text-white',
     bgcolor: 'bg-citoyen-100',
     bgcolorhover: 'group-hover:bg-citoyen',
     url: 'https://enfance-jeunesse.marche.be',
@@ -54,7 +54,7 @@ const shortcuts = [
   {
     name: 'CPAS', description: 'Centre public d\'action sociale',
     icon: 'fas fa-heart',
-    color: 'text-citoyen',
+    color: 'text-white',
     bgcolor: 'bg-citoyen-100',
     bgcolorhover: 'group-hover:bg-citoyen',
     url: '/social/category/23',
