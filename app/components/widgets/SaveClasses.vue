@@ -24,5 +24,7 @@
     <a href="#" class="hover:text-administration">coucou</a>
     <a href="#" class="hover:text-social">coucou</a>
     <a href="#" class="hover:text-economie">coucou</a>
+
+    <span class="text-citoyen-600 bg-citoyen-100 group-hover:bg-citoyen-600"></span>
   </div>
 </template>

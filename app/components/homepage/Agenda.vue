@@ -14,7 +14,7 @@ function monthName(monthNumber) {
 </script>
 <template>
   <section>
-    <h2 class="text-xl md:text-3xl font-bold mb-6">Événements</h2>
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Agenda</h2>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error"/>
     <div class="space-y-6" v-else>

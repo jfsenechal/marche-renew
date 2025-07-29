@@ -4,14 +4,14 @@ import QuickAccessItem from "~/components/homepage/QuickAccessItem.vue";
 
 const shortcuts = [
   {
-    name: 'Horaire-Contact',
+    name: 'Horaire Contact',
     description: 'Prenez rendez-vous...',
     icon: 'fas fa-clock',
     url: '/citoyen/category/38',
     id: 3,
-    color: 'text-green-600',
-    bgcolor: 'bg-green-100',
-    bgcolorhover: 'group-hover:bg-green-600'
+    color: 'text-citoyen',
+    bgcolor: 'bg-citoyen-100',
+    bgcolorhover: 'group-hover:bg-citoyen'
   },
   {
     name: 'E-guichet',
@@ -20,18 +20,18 @@ const shortcuts = [
     icon: 'fas fa-id-card',
     url: '/tourisme/article/20644',
     id: 1,
-    color: 'text-orange-600',
-    bgcolor: 'bg-orange-100',
-    bgcolorhover: 'group-hover:bg-orange-600'
+    color: 'text-citoyen',
+    bgcolor: 'bg-citoyen-100',
+    bgcolorhover: 'group-hover:bg-citoyen'
   },
   {
     name: 'Piscine', description: 'Horaires et tarifs.',
     icon: 'fas fa-person-swimming',
     url: '/sport/article/71/5153',
     id: 4,
-    color: 'text-blue-600',
-    bgcolor: 'bg-blue-100',
-    bgcolorhover: 'group-hover:bg-blue-600'
+    color: 'text-citoyen',
+    bgcolor: 'bg-citoyen-100',
+    bgcolorhover: 'group-hover:bg-citoyen'
   },
   {
     name: 'Parking',
@@ -39,25 +39,25 @@ const shortcuts = [
     icon: 'fas fa-square-parking',
     url: '/citoyen/category/119',
     id: 2,
-    color: 'text-yellow-600',
-    bgcolor: 'bg-yellow-100',
-    bgcolorhover: 'group-hover:bg-yellow-600'
+    color: 'text-citoyen',
+    bgcolor: 'bg-citoyen-100',
+    bgcolorhover: 'group-hover:bg-citoyen'
   },
   {
     name: 'Enfance Jeunesse', description: 'Activités, écoles et aides',
     icon: 'fas fa-child',
-    color: 'text-indigo-600',
-    bgcolor: 'bg-indigo-100',
-    bgcolorhover: 'group-hover:bg-indigo-600',
+    color: 'text-citoyen',
+    bgcolor: 'bg-citoyen-100',
+    bgcolorhover: 'group-hover:bg-citoyen',
     url: 'https://enfance-jeunesse.marche.be',
     id: 6
   },
   {
     name: 'CPAS', description: 'Centre public d\'action sociale',
     icon: 'fas fa-heart',
-    color: 'text-red-600',
-    bgcolor: 'bg-red-100',
-    bgcolorhover: 'group-hover:bg-red-600',
+    color: 'text-citoyen',
+    bgcolor: 'bg-citoyen-100',
+    bgcolorhover: 'group-hover:bg-citoyen',
     url: '/social/category/23',
     id: 7
   },
