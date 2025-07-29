@@ -1,0 +1,28 @@
+<script setup>
+
+</script>
+<template>
+  <section class="bg-blue-50 py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Autres informations</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <NuxtLink v-for="item in widgetsHomeGet"
+           :key="item.id"
+           :to="item.url"
+           class="group block bg-white p-4 md:p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+          <div class="text-center">
+            <i :class="`${item.icon} text-cta-dark mb-4 transition-all duration-300 group-hover:text-citoyen group-hover:scale-110`"></i>
+            <h4 class="font-bold text-xl mb-2 text-gray-900">{{ item.title }}</h4>
+            <p class="hidden md:text-gray-600">
+              {{ item.intro }}
+            </p>
+            <span
+                class="mt-4 inline-block font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        En savoir plus →
+                    </span>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+  </section>
+</template>

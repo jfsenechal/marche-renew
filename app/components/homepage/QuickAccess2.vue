@@ -1,5 +1,4 @@
 <script setup>
-import {computed} from 'vue'
 import QuickAccessItem from "~/components/homepage/QuickAccessItem.vue";
 
 const shortcuts = [
@@ -14,7 +13,7 @@ const shortcuts = [
     bgcolorhover: 'group-hover:bg-citoyen'
   },
   {
-    name: 'E-guichet',
+    name: 'Eguichet',
     description: 'Géolocalisation des parkings, infrastructures, environnement...',
     // NOTE: 'fa-2x' has been removed. We'll control size with Tailwind.
     icon: 'fas fa-id-card',
@@ -62,16 +61,11 @@ const shortcuts = [
     id: 7
   },
 ]
-
-// These computed properties remain the same
-const firstRowShortcuts = computed(() => shortcuts.slice(0, 3))
-const secondRowShortcuts = computed(() => shortcuts.slice(3))
 </script>
-
 <template>
   <section class="bg-gray-50 py-12">
     <div class="container mx-auto px-4 md:px-6 -mt-8 relative z-20">
-        <div class="grid grid-cols-3  lg:grid-cols-[repeat(3,minmax(0,300px))] gap-2 lg:gap-4 justify-center align-center">
+        <div class="grid grid-cols-3 lg:grid-cols-[repeat(3,minmax(0,300px))] gap-2 lg:gap-4 justify-center align-center">
           <QuickAccessItem :item="shortcut"
                            v-for="shortcut in shortcuts"
                            :key="shortcut.id">

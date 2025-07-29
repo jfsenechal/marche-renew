@@ -15,7 +15,7 @@ definePageMeta({
           <HomepageAgenda/>
         </div>
       </section>
-      <HomepageWidgets/>
+      <HomepageWidgets3/>
       <HomepagePartners/>
     </main>
   </NuxtLayout>
