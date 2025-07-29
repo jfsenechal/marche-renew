@@ -71,7 +71,7 @@ const secondRowShortcuts = computed(() => shortcuts.slice(3))
 <template>
   <section class="bg-gray-50 py-12">
     <div class="container mx-auto px-4 md:px-6 -mt-8 relative z-20">
-        <div class="grid grid-cols-3  lg:grid-cols-[repeat(3,minmax(0,300px))] lg:gap-4 justify-center align-center">
+        <div class="grid grid-cols-3  lg:grid-cols-[repeat(3,minmax(0,300px))] gap-2 lg:gap-4 justify-center align-center">
           <QuickAccessItem :item="shortcut"
                            v-for="shortcut in shortcuts"
                            :key="shortcut.id">
