@@ -5,7 +5,7 @@ const {item} = defineProps({item: {type:Object,required: true}})
   <NuxtLink
               :key="item.id"
               :to="item.url"
-              class="group bg-white border border-amber-300p-4 rounded-2xl s4hadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center md:rounded-xl mr-2">
+              class="group bg-white p-4 rounded-2xl s4hadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center md:rounded-xl mr-2">
             <div
                 :class="`${item.bgcolor} ${item.color} rounded-full mb-2 p-3 ${item.bgcolorhover} group-hover:text-white transition-colors md:p-4 md:mb-4`">
               <!-- Icon size is now responsive! -->
