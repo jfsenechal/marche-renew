@@ -12,7 +12,7 @@
           id="hero-search"
           name="q"
           type="search"
-          placeholder="Que recherchez-vous ?"
+          placeholder="Que cherchez-vous ?"
           class="w-full py-3 pl-12 pr-16 md:pr-32 text-gray-900 bg-white rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-shadow"
       >
 
