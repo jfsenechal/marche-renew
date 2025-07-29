@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+
 @plugin "@tailwindcss/typography";
 
 @theme {
@@ -29,6 +30,8 @@
     --color-grey-dark: #232222;
     --color-grey-light: #dee2e6;
     --color-grey-lighter: #ededec;
+    --color-pistache: #93c572;
+    --color-bleu: #c8dbe3;
     --object-top-center: "top center";
     --object-center-center: "center center";
     --object-bottom-center: "bottom center";
