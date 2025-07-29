@@ -27,7 +27,7 @@ const {
       </div>
     </div>
     <NuxtLink to="/news"
-              class="inline-block mt-8 bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors">
+              class="inline-block mt-8 bg-citoyen text-white font-semibold py-2 px-5 rounded-lg hover:bg-cta-dark transition-colors">
       Toutes les actualités
     </NuxtLink>
   </section>
