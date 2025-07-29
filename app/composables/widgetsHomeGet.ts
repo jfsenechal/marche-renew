@@ -44,7 +44,7 @@ export const widgetsHomeGet = [
         bgcolorhover: 'group-hover:bg-citoyen'
     },
     {
-        name: "Plateforme de volontariat",
+        name: "Plateforme volontariat",
         intro: "Offres et demandes du tissu associatif",
         class: "bg-img-widgets-4",
         icon: "fas fa-hand-holding-heart",
