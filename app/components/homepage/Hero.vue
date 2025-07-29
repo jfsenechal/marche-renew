@@ -27,7 +27,9 @@ onMounted(() => {
     <!-- Hero Content -->
     <div class="relative z-10 text-center px-4">
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Bienvenue à Marche-en-Famenne</h1>
-      <HomepageFormSearch/>
+      <div class="mt-8 max-w-xl mx-auto px-4 md:px-0">
+        <HomepageFormSearch/>
+      </div>
       <p class="hidden md:block m4t-4 md:pt-12 text-xl md:text-2xl font-light">
         Marche-en-Famenne, une ville de cultures et d'opportunités.
       </p>

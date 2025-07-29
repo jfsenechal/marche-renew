@@ -14,14 +14,15 @@ function monthName(monthNumber) {
 </script>
 <template>
   <section>
-    <h2 class="text-xl md:text-3xl font-bold mb-6">Prochains Événements</h2>
+    <h2 class="text-xl md:text-3xl font-bold mb-6">Événements</h2>
     <WidgetsLoader v-if="status === 'pending'"/>
     <WidgetsError v-else-if="error"/>
     <div class="space-y-6" v-else>
-      <NuxtLink v-for="item in events"
+      <NuxtLink v-for="(item,index) in events"
                 :key="item.codeCgt"
                 :to="`/agenda/${item.codeCgt}`"
-                class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow">
+                class="bg-white rounded-lg shadow-md overflow-hidden flex hover:shadow-lg transition-shadow"
+                :class="`${index > 2 ? 'hidden md:flex' : ''}`">
         <div
             class="bg-green-600 text-white p-4 flex flex-col items-center justify-center w-24 text-center flex-shrink-0">
           <span class="text-3xl font-bold">  {{ item.shortCutDateEvent["day"] }}</span>

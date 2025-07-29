@@ -1,0 +1,16 @@
+<script setup>
+
+</script>
+<template>
+  <!-- Hero Section -->
+  <section class="relative h-[20vh] bg-gray-50 flex items-center justify-center text-cta-dark">
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Bienvenue à Marche-en-Famenne</h1>
+      <div class="mt-4 max-w-xl mx-auto px-4 md:px-0">
+        <HomepageFormSearch/>
+      </div>
+      <div class="md:hidden mb-4"></div>
+    </div>
+  </section>
+</template>
