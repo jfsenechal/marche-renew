@@ -6,6 +6,13 @@ export const widgetsHomeGet = [
         icon: "fas fa-paper-plane fa-3x",
         url: "/administration/category/15",
         id: 1,
+    },  {
+        title: "Mon courriel @marche.be",
+        intro: "Consultez votre boite mail",
+        class: "bg-img-widgets-1",
+        icon: "fas fa-at fa-3x",
+        url: "/administration/category/15",
+        id: 1,
     },
     {
         title: "Economie",
