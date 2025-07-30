@@ -16,9 +16,8 @@ function onCategorySelected(category) {
 }
 </script>
 <template>
-  <section class="relative  bg-blue-50 text-black flex flex-col "
-  >
-    <header class="container mx-auto  text-center animate-fade-in-up"
+  <section class="relative  bg-blue-50 text-black flex flex-col "  >
+    <header class="container mx-auto  text-center mt-3 animate-fade-in-up"
             style="animation: fade-in-up 1s ease-out forwards;">
       <WidgetsBreadcrumbs :paths="data.paths" :title="data.name"/>
       <h1 class="text-4xl md:text-6xl font-bold  text-cta-dark">{{ data.name }}</h1>
