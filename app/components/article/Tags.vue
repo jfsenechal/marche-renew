@@ -11,7 +11,7 @@ const site = useRoute().params.site
 <template>
   <div class="flex flex-row gap-2 mt-6">
     <NuxtLink
-        v-for="tag in tags"
+        v-for="tag in tags.slice(0,4)"
         :key="tag.id"
         :to="`/${site}/category/${tag.id}`"
         class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider hover:bg-blue-200 transition-colors">

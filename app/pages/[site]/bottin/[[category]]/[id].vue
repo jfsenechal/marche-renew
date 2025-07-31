@@ -36,16 +36,21 @@ onUnmounted(() => {
   }
 });
 const paths = [{name: 'Xxx', term_id: categorySelected}]
-const tags = []
+const tags = computed(() =>
+    data.value.categories?.map(category => ({
+      id: category.id,
+      name: category.name
+    }))
+)
 </script>
 <template>
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error"/>
   <div class="bg-slate-50 " v-else>
-    <ArticleHeader :thumbnail="data.image" v-if="data.image"/>
+    <ArticleHeader :thumbnail="data.logo" v-if="data.logo"/>
     <article
         class="relative z-20 w-full md:max-w-6xl mx-auto bg-white rounded-xl shadow-2xl p-2 sm:p-10 md:p-12"
-        :class="data.image ? '-mt-16 md:-mt-24':''">
+        :class="data.logo ? '-mt-16 md:-mt-24':''">
 
       <div class="animate-fade-in-down">
         <WidgetsBreadcrumbs :paths="paths" :title="data.societe"/>
@@ -56,6 +61,7 @@ const tags = []
         <div class="prose max-w-none prose-lg prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-800">
           <div class="fade-in-up">
             <BottinFicheCard :fiche="data"/>
+
           </div>
         </div>
       </div>
