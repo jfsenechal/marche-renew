@@ -9,19 +9,15 @@ const {data, categorySelected} = defineProps({
   }
 })
 const emit = defineEmits(['update:category-selected'])
-
-function selectCategory(category) {
-  emit('update:category-selected', category)
-}
-
 const isSelected = (categoryId) => {
   return categorySelected === categoryId;
 };
+function selectCategory(category) {
+  emit('update:category-selected', category)
+}
 </script>
 <template>
   <section class="mx-auto p-8 bg-blue-50">
-    <fieldset class="border border-solid border-gray-300 p-6 rounded-lg">
-      <legend class="text-lg font-semibold px-2">Filtrer</legend>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2" role="list">
         <NuxtLink role="listitem"
                   class="p-4 rounded-md shadow-sm flex items-center justify-between transition-colors duration-300"
@@ -41,6 +37,5 @@ const isSelected = (categoryId) => {
           </button>
         </NuxtLink>
       </div>
-    </fieldset>
-  </section>
+    </section>
 </template>
