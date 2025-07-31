@@ -1,17 +1,21 @@
 <script setup>
 //https://www.getrevue.co/profile/shrutibalasa/issues/where-is-inline-flex-used-1394402
-const tags = [
-  {name: 'Actualités', id: 1},
-  {name: 'Infos travaux', id: 2}
-]
+const {tags} = defineProps({
+  tags: {
+    type: Array,
+    default: []
+  }
+})
+const site = useRoute().params.site
 </script>
 <template>
-  <ul class="flex xl:row-start-3 xl:row-end-4 xl:col-start-3 xl:col-end-4">
-    <li
-        v-for="item in tags" :key="item.id"
-        class="mx-2 flex items-center border border-cta-dark px-2 py-2 text-cta-dark transition-all duration-500 ease-in-out hover:bg-cta-dark hover:text-white"
-    >
-      <a href="https://www.marche.be/./actualites/">{{ item.name }}</a>
-    </li>
-  </ul>
+  <div class="flex flex-row gap-2 mt-6">
+    <NuxtLink
+        v-for="tag in tags"
+        :key="tag.id"
+        :to="`/${site}/category/${tag.id}`"
+        class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider hover:bg-blue-200 transition-colors">
+      {{ tag.name }}
+    </NuxtLink>
+  </div>
 </template>
