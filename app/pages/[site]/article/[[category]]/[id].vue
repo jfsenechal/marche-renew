@@ -40,57 +40,25 @@ onUnmounted(() => {
   <WidgetsError v-else-if="error"/>
   <div class="bg-slate-50 " v-else>
     <ArticleHeader :thumbnail="data.post_thumbnail_url" v-if="data.post_thumbnail_url"/>
-    <ArticleContent :data :thumbnail="data.post_thumbnail_url"/>
+    <article
+        class="relative z-20 w-full md:max-w-6xl mx-auto bg-white rounded-xl shadow-2xl p-2 sm:p-10 md:p-12"
+        :class="data.post_thumbnail_url ? '-mt-16 md:-mt-24':''">
+
+      <div class="animate-fade-in-down">
+        <WidgetsBreadcrumbs :paths="paths" :title="data.post_title"/>
+        <ArticleTags :tags="data.tags"/>
+        <ArticleTitle :title="data.post_title"/>
+        <ArticleShareAndListen/>
+
+        <div class="prose max-w-none prose-lg prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-800">
+          <ArticleExcerpt :excerpt="data.post_excerpt"/>
+          <div class="fade-in-up">
+            <div v-html="data.content"></div>
+          </div>
+
+        </div>
+      </div>
+    </article>
     <ArticleSeeAlso/>
   </div>
 </template>
-<style>
-
-/* Hero image subtle zoom animation */
-@keyframes subtleZoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
-}
-
-.hero-image-zoom {
-  animation: subtleZoom 15s ease-in-out alternate infinite;
-}
-
-/* Initial state for scroll-triggered animations */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Final state for scroll-triggered animations */
-.fade-in-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Simple fade-in-down for header elements */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-down {
-  animation: fadeInDown 0.8s ease-out forwards;
-}
-
-.animate-fade-in-down-delay {
-  animation: fadeInDown 0.8s ease-out 0.2s forwards;
-  opacity: 0; /* Start hidden */
-}
-</style>
