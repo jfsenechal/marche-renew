@@ -4,7 +4,7 @@ const imgUrl = computed(() => thumbnail ?? 'https://www.marche.be/wp-content/upl
 </script>
 <template>
   <!-- HERO HEADER SECTION -->
-  <header class="relative h-[50vh] min-h-[350px] max-h-[450px] w-full mb-3 overflow-hidden">
+  <header class="relative h-[20vh] md:h-[50vh] w-full mb-3 overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
       <img :src="imgUrl"
