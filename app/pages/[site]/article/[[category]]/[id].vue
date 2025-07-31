@@ -39,8 +39,8 @@ onUnmounted(() => {
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error"/>
   <div class="bg-slate-50 " v-else>
-    <ArticleHeader :thumbnail="data.post_thumbnail_url"/>
-    <ArticleContent :data/>
+    <ArticleHeader :thumbnail="data.post_thumbnail_url" v-if="data.post_thumbnail_url"/>
+    <ArticleContent :data :thumbnail="data.post_thumbnail_url"/>
     <ArticleSeeAlso/>
   </div>
 </template>

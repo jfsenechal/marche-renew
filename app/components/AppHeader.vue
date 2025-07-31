@@ -120,7 +120,7 @@ onUnmounted(() => document.removeEventListener('click', closeDesktopMenuOnClickO
               <button
                   @click="selectDesktopCategory(item)"
                   type="button"
-                  class="w-full text-left px-4 py-2 text-base rounded-md"
+                  class="cursor-pointer w-full text-left px-4 py-2 text-base rounded-md"
                   :class="activeDesktopCategory?.blogid === item.blogid ? `bg-gray-100 font-semibold ${item.color}` : 'hover:bg-gray-100'"
               >
                 {{ item.name }}

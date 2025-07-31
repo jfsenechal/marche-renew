@@ -1,13 +1,16 @@
 <script setup>
-const {thumbnail} = defineProps({thumbnail: {type: String, default: null}})
-const imgUrl = computed(() => thumbnail ?? 'https://www.marche.be/wp-content/uploads/2025/07/1.jpg')
+const {thumbnail} = defineProps({
+  thumbnail: {
+    type: String, default: null
+  }
+})
 </script>
 <template>
   <!-- HERO HEADER SECTION -->
   <header class="relative h-[20vh] md:h-[50vh] w-full mb-3 overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <img :src="imgUrl"
+      <img :src="thumbnail"
            alt=""
            class="w-full h-full object-cover hero-image-zoom">
     </div>
