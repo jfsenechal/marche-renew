@@ -17,6 +17,7 @@ const googleMapsUrl = computed(() => {
 </script>
 <template>
   <div class="flex items-start group">
+    <h3>Adresse</h3>
     <div class="flex-shrink-0 w-6 h-6 mt-1">
       <svg class="w-6 h-6 text-gray-400 dark:text-gray-500 group-hover:text-teal-500 transition-colors duration-200"
            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

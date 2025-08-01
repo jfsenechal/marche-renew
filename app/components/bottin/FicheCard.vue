@@ -13,6 +13,8 @@ const {fiche} = defineProps({
       <BottinDescription :fiche/>
       <BottinAddress :fiche/>
       <BottinContact :fiche/>
+      <BottinHoraires :fiche/>
+      <BottinImages :fiche/>
     </div>
     <!-- Social Media Links -->
     <BottinSocialNetworks :fiche/>
