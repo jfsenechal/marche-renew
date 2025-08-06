@@ -1,3 +1,5 @@
+<script setup lang="ts">
+</script>
 <template>
   <!-- Publication Date and Share Button -->
   <div class="mt-6 mb-4 flex flex-row justify-between items-start sm:items-center gap-4">
@@ -20,5 +22,3 @@
     </button>
   </div>
 </template>
-<script setup lang="ts">
-</script>

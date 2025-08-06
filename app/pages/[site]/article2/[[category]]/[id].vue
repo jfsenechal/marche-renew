@@ -42,12 +42,15 @@ onUnmounted(() => {
     <!-- HERO HEADER SECTION -->
     <Article2Header :title="data.post_title"
                     :thumbnail="data.post_thumbnail_url"
-                    :excerpt="data.post_excerpt"    />
+                    :excerpt="data.post_excerpt"
+                    :tags="data.tags"/>
     <!-- MAIN CONTENT SECTION -->
     <main class="relative z-20 -mt-16 md:-mt-24">
       <article class="max-w-3xl mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 md:p-12">
+        <ArticleShareAndListen/>
         <Article2Body :body="data.content"/>
       </article>
+      <ArticleSeeAlso/>
     </main>
 
   </div>

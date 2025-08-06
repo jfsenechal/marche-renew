@@ -1,5 +1,5 @@
-<script setup lang="ts">
-const {thumbnail, title} = defineProps({
+<script setup>
+const {thumbnail, title, excerpt, tags} = defineProps({
   thumbnail: {
     type: String,
     default: null
@@ -11,11 +11,15 @@ const {thumbnail, title} = defineProps({
   excerpt: {
     type: String,
     default: null
+  },
+  tags: {
+    type: Array,
+    default: []
   }
 })
 </script>
 <template>
-  <header class="relative h-[50vh] min-h-[350px] max-h-[450px] w-full overflow-hidden">
+  <header class="relative h-[50vh] min-h-[350px] max-h-[450px] w-full overflow-hidden" title="">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-blue-50">
       <img :src="thumbnail"
@@ -28,8 +32,11 @@ const {thumbnail, title} = defineProps({
 
     <!-- Header Content -->
     <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-4">
-      <p class="text-sm font-semibold uppercase tracking-widest text-blue-300 animate-fade-in-down">Information
-        Circulation</p>
+      <p v-for="tag in tags.slice(0,4)"
+         :key="tag.id"
+         class="text-sm font-semibold uppercase tracking-widest text-blue-300 animate-fade-in-down">
+        {{ tag.name }}
+      </p>
       <h1 class="text-3xl md:text-5xl font-bold mt-4 max-w-4xl leading-tight animate-fade-in-down">
         {{ title }}
       </h1>
