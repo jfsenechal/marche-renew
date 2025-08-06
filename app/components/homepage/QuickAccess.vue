@@ -95,7 +95,7 @@ const secondRowShortcuts = computed(() => shortcuts.slice(4))
               <i :class="`${shortcut.icon} text-2xl md:text-3xl transition-transform group-hover:scale-110`"></i>
             </div>
             <!-- Title size is now responsive! -->
-            <h3 class="font-bold text-sm text-gray-800 md:text-xl md:mb-1">{{ shortcut.name }}</h3>
+            <h3 class="font-bold text-sm text-black-base md:text-xl md:mb-1">{{ shortcut.name }}</h3>
             <!-- Description is hidden on mobile, visible on desktop -->
             <p class="hidden md:block text-gray-500">{{ shortcut.description }}</p>
           </NuxtLink>
@@ -113,7 +113,7 @@ const secondRowShortcuts = computed(() => shortcuts.slice(4))
                 :class="`${shortcut.bgcolor} ${shortcut.color} rounded-full mb-2 p-3 ${shortcut.bgcolorhover} group-hover:text-white transition-colors md:p-4 md:mb-4`">
               <i :class="`${shortcut.icon} text-2xl md:text-3xl transition-transform group-hover:scale-110`"></i>
             </div>
-            <h3 class="font-bold text-sm text-gray-800 md:text-xl md:mb-1">{{ shortcut.name }}</h3>
+            <h3 class="font-bold text-sm text-black-base md:text-xl md:mb-1">{{ shortcut.name }}</h3>
             <p class="hidden md:block text-gray-500">{{ shortcut.description }}</p>
           </NuxtLink>
         </div>

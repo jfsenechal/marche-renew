@@ -17,7 +17,7 @@
               <i :class="`${item.icon} text-3xl md:text-6xl transition-transform group-hover:scale-110`"></i>
             </div>
             <!-- Title size is now responsive! -->
-            <h3 class="font-bold text-sm text-gray-800 md:text-xl md:mb-1">{{ item.name }}</h3>
+            <h3 class="font-bold text-sm text-black-base md:text-xl md:mb-1">{{ item.name }}</h3>
           </NuxtLink>
         </div>
     </div>

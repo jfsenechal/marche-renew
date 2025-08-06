@@ -136,13 +136,13 @@ function extractType(item) {
             </ul>
 
             <div v-else-if="searchQuery && !isLoading" class="text-center py-10">
-              <p class="text-gray-800 font-semibold">No results found</p>
+              <p class="text-black-base font-semibold">No results found</p>
               <p class="text-gray-500 mt-2">No results were found for "{{ searchQuery }}". Try a different search
                 term.</p>
             </div>
 
             <div v-else class="text-center py-10">
-              <p class="text-gray-800 font-semibold">Search the site</p>
+              <p class="text-black-base font-semibold">Search the site</p>
               <p class="text-gray-500 mt-2">Find articles, events, and more.</p>
             </div>
           </div>

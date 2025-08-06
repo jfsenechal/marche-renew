@@ -21,7 +21,7 @@ function selectCategory(category) {
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2" role="list">
         <NuxtLink role="listitem"
                   class="p-4 rounded-md shadow-sm flex items-center justify-between transition-colors duration-300"
-                  :class="isSelected(child.cat_ID) ? 'bg-cta-dark text-white' : 'bg-white text-gray-800'"
+                  :class="isSelected(child.cat_ID) ? 'bg-cta-dark text-white' : 'bg-white text-black-base'"
                   v-for="child in data.children"
                   :key="child.cat_ID"
                   href="#"
