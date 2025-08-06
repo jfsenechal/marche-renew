@@ -68,6 +68,10 @@ const shortcuts = [
                            v-for="shortcut in shortcuts"
                            :key="shortcut.id">
           </HomepageQuickAccessItem>
+          <HomepageQuickAccessItem3 :item="shortcut"
+                           v-for="shortcut in shortcuts"
+                           :key="shortcut.id">
+          </HomepageQuickAccessItem3>
         </div>
     </div>
   </section>
