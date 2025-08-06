@@ -1,7 +1,7 @@
 <script setup>
 const {excerpt} = defineProps({
   excerpt: {
-    type: Object,
+    type: String,
     default: null
   }
 })
