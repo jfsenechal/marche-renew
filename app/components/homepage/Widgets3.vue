@@ -4,7 +4,6 @@
 <template>
   <section class="bg-blue-50 py-12">
     <div class="container mx-auto px-4 md:px-6 -mt-8 relative z-20">
-      <h2 class="text-3xl font-bold mb-4">Autres informations</h2>
         <div class="grid grid-cols-3 lg:grid-cols-[repeat(3,minmax(0,300px))] gap-2 lg:gap-4 justify-center align-center">
           <NuxtLink
               v-for="item in widgetsHomeGet"
@@ -12,7 +11,7 @@
               :to="item.url"
               class="group  p-4 rounded-2xl sha4dow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center md:rounded-xl">
             <div
-                :class="` text-cta-dark  group-hover:text-citoyen transition-colors md:mb-4 flex items-center justify-center `">
+                :class="` text-cta-dark  group-hover:text-citoyen transition-colors mb-2 md:mb-4 flex items-center justify-center `">
               <!-- Icon size is now responsive! -->
               <i :class="`${item.icon} text-3xl md:text-6xl transition-transform group-hover:scale-110`"></i>
             </div>

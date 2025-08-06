@@ -63,16 +63,12 @@ const shortcuts = [
 <template>
   <section class="bg-blue-50 py-12">
     <div class="container mx-auto px-4 md:px-6 -mt-8 relative z-20">
-        <div class="grid grid-cols-3 lg:grid-cols-[repeat(3,minmax(0,300px))] gap-2 lg:gap-4 justify-center align-center">
-          <HomepageQuickAccessItem :item="shortcut"
-                           v-for="shortcut in shortcuts"
-                           :key="shortcut.id">
-          </HomepageQuickAccessItem>
-          <HomepageQuickAccessItem3 :item="shortcut"
-                           v-for="shortcut in shortcuts"
-                           :key="shortcut.id">
-          </HomepageQuickAccessItem3>
-        </div>
+      <div class="grid grid-cols-3 lg:grid-cols-[repeat(3,minmax(0,300px))] gap-2 lg:gap-4 justify-center align-center">
+        <HomepageQuickAccessItem3 :item="shortcut"
+                                  v-for="shortcut in shortcuts"
+                                  :key="shortcut.id">
+        </HomepageQuickAccessItem3>
+      </div>
     </div>
   </section>
 </template>
