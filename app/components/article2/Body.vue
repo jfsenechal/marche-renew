@@ -1,0 +1,15 @@
+<script setup lang="ts">
+const {body} = defineProps({body: {type: String, required: true}})
+</script>
+<template>
+  <div class="prose max-w-none prose-lg prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-800">
+
+    <div class="fade-in-up text-slate-600" v-html="body"></div>
+
+    <div class="fade-in-up mt-8 border-t border-slate-200 pt-8">
+      <p class="text-center text-slate-600">
+        La Ville de Marche-en-Famenne vous remercie de votre compréhension et de votre collaboration.
+      </p>
+    </div>
+  </div>
+</template>
