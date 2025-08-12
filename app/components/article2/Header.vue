@@ -1,25 +1,15 @@
 <script setup>
-const {thumbnail, title, excerpt, tags} = defineProps({
+const {thumbnail} = defineProps({
   thumbnail: {
     type: String,
     default: null
   },
-  title: {
-    type: String,
-    required: true
-  },
-  excerpt: {
-    type: String,
-    default: null
-  },
-  tags: {
-    type: Array,
-    default: []
-  }
 })
+//const thumbnail = null
 </script>
 <template>
-  <header class="relative h-[50vh] min-h-[350px] max-h-[450px] w-full overflow-hidden" title="">
+  <header class="relative  w-full overflow-hidden"
+          :class="thumbnail ? 'h-[35vh] md:h-[50vh]':'h-[8vh] md:h-[12vh]'" title="">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-blue-50">
       <img :src="thumbnail"
@@ -28,9 +18,10 @@ const {thumbnail, title, excerpt, tags} = defineProps({
     </div>
 
     <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 "
+         :class="thumbnail ? 'bg-black/50':'bg-blue-50'"></div>
 
-    <!-- Header Content -->
+    <!-- Header Content
     <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white p-4">
       <p v-for="tag in tags.slice(0,4)"
          :key="tag.id"
@@ -41,6 +32,6 @@ const {thumbnail, title, excerpt, tags} = defineProps({
         {{ title }}
       </h1>
       <p class="mt-4 text-lg text-slate-200 animate-fade-in-down-delay" v-if="excerpt">{{ excerpt }}</p>
-    </div>
+    </div> -->
   </header>
 </template>
