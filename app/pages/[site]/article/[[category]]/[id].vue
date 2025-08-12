@@ -34,31 +34,28 @@ onUnmounted(() => {
     observer.disconnect();
   }
 });
+const paths = [];
 </script>
 <template>
   <WidgetsLoader v-if="status === 'pending'"/>
   <WidgetsError v-else-if="error"/>
   <div class="bg-slate-50 " v-else>
-    <ArticleHeader :thumbnail="data.post_thumbnail_url" v-if="data.post_thumbnail_url"/>
-    <article
-        class="relative z-20 w-full md:max-w-6xl mx-auto bg-white rounded-xl shadow-2xl p-2 sm:p-10 md:p-12"
-        :class="data.post_thumbnail_url ? '-mt-16 md:-mt-24':''">
-
-      <div class="animate-fade-in-down">
+    <!-- HERO HEADER SECTION -->
+    <ArticleHeader
+                    :thumbnail="data.post_thumbnail_url"
+                   />
+    <!-- MAIN CONTENT SECTION -->
+    <main class="relative z-20 -mt-16 md:-mt-24">
+      <article class="max-w-3xl md:max-w-5xl mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 md:p-12">
         <WidgetsBreadcrumbs :paths="paths" :title="data.post_title"/>
         <ArticleTags :tags="data.tags"/>
         <ArticleTitle :title="data.post_title"/>
         <ArticleShareAndListen/>
+        <ArticleBody :body="data.content"/>
+        <ArticleTags :tags="data.tags"/>
+      </article>
+      <ArticleSeeAlso/>
+    </main>
 
-        <div class="prose max-w-none prose-lg prose-slate prose-a:text-blue-600 hover:prose-a:text-blue-800">
-          <ArticleExcerpt :excerpt="data.post_excerpt"/>
-          <div class="fade-in-up">
-            <div v-html="data.content"></div>
-          </div>
-
-        </div>
-      </div>
-    </article>
-    <ArticleSeeAlso/>
   </div>
 </template>
