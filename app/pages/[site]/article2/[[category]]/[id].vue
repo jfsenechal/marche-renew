@@ -46,7 +46,9 @@ onUnmounted(() => {
                     :tags="data.tags"/>
     <!-- MAIN CONTENT SECTION -->
     <main class="relative z-20 -mt-16 md:-mt-24">
-      <article class="max-w-3xl mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 md:p-12">
+      <article class="max-w-3xl md:max-w-5xl mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10 md:p-12">
+        <WidgetsBreadcrumbs :paths="paths" :title="data.post_title"/>
+        <ArticleTitle :title="data.post_title"/>
         <ArticleShareAndListen/>
         <Article2Body :body="data.content"/>
       </article>
